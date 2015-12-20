@@ -6,4 +6,11 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>hamster-sprite-service</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-dao</artifactId>
+    </dependency>
+  </dependencies>
 </project>

@@ -29,7 +29,7 @@
         <artifactId>hamster-parent</artifactId>
         <version>${hamster-parent.version}</version>
       </dependency>
-      
+
       <!-- Project -->
       <dependency>
         <groupId>org.hamster.sprite</groupId>
@@ -55,6 +55,13 @@
         <groupId>org.hamster.sprite</groupId>
         <artifactId>hamster-sprite-test</artifactId>
         <version>${project.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hamster</groupId>
+        <artifactId>hamster-core-test</artifactId>
+        <version>${hamster-parent.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>

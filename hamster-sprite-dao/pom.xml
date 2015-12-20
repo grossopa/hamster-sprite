@@ -7,4 +7,11 @@
   </parent>
   <artifactId>hamster-sprite-dao</artifactId>
   <name>Hamster Sprite DAO</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-core</artifactId>
+    </dependency>
+  </dependencies>
 </project>

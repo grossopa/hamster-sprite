@@ -8,4 +8,16 @@
   <artifactId>hamster-sprite-portal</artifactId>
   <packaging>war</packaging>
   <name>Hamster Sprite Portal</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-service</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+    </dependency>
+  </dependencies>
 </project>

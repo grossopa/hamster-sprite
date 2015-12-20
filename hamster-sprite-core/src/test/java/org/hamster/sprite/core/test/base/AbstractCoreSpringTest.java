@@ -13,6 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/spriteContext-config.xml" })
-public class AbstractCoreSpringTest {
+public abstract class AbstractCoreSpringTest {
 
 }
