@@ -19,6 +19,8 @@
 
     <hamster-parent.version>0.0.1-SNAPSHOT</hamster-parent.version>
 
+    <!-- database settings -->
+    <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
   </properties>
 
   <dependencyManagement>
@@ -64,8 +66,95 @@
         <version>${hamster-parent.version}</version>
         <scope>test</scope>
       </dependency>
+
+      <!-- jdbc connector -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector-java.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
+
+  <!-- common dependencies -->
+  <dependencies>
+
+    <!-- Logs -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
+
+    <!-- bridge log4j to slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>log4j-over-slf4j</artifactId>
+    </dependency>
+
+    <!-- bridge commons-logging to slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+    </dependency>
+
+    <!-- java.util.logging to slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+    </dependency>
+    <!-- Logs End -->
+
+    <dependency>
+      <groupId>org.hamster</groupId>
+      <artifactId>hamster-core-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+    </dependency>
+
+    <!-- Utilities -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+  </dependencies>
 
 
   <modules>
