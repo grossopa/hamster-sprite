@@ -3,6 +3,7 @@
  */
 package com.hamster.sprite.dao.test.base;
 
+import org.hamster.core.api.environment.initializer.LocalEnvironmentContextInitializer;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -12,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spriteContext-config.xml", "classpath:/spriteContext-dao.xml" })
+@ContextConfiguration(locations = { "classpath:/spriteContext-config.xml", "classpath:/spriteContext-dao.xml" }, initializers = { LocalEnvironmentContextInitializer.class })
 public abstract class AbstractDaoSpringTest {
 
 }

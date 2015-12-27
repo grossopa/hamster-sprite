@@ -50,5 +50,15 @@
       <artifactId>jta</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>javax.el-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
   </dependencies>
 </project>

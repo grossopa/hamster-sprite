@@ -8,13 +8,11 @@
 
   <description>Hamster Sprite Core Configuration</description>
 
-  <util:properties id="spriteProperties" location="classpath:/application.properties" />
-
   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="locations">
       <list>
-        <value>classpath:/application.properties</value>
-        <value>classpath:/DEV/application.DEV.properties</value>
+        <value>classpath:config/application.properties</value>
+        <value>classpath:config/${spring.profiles.active}/application.${spring.profiles.active}.properties</value>
       </list>
     </property>
   </bean>

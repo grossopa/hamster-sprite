@@ -3,12 +3,8 @@
  */
 package org.hamster.sprite.dao.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hamster.core.dao.entity.base.ManageableEntity;
