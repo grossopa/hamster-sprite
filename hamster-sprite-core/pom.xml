@@ -14,6 +14,12 @@
       <artifactId>hamster-core-api</artifactId>
     </dependency>
 
+    <!-- project -->
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-api</artifactId>
+    </dependency>
+
     <!-- Logs -->
     <dependency>
       <groupId>ch.qos.logback</groupId>

@@ -60,5 +60,12 @@
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
 
+    <!-- test -->
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-test</artifactId>
+    </dependency>
+
+
   </dependencies>
 </project>

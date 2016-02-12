@@ -35,6 +35,11 @@
       <!-- Project -->
       <dependency>
         <groupId>org.hamster.sprite</groupId>
+        <artifactId>hamster-sprite-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamster.sprite</groupId>
         <artifactId>hamster-sprite-core</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -112,12 +117,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.hamster.sprite</groupId>
-      <artifactId>hamster-sprite-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
@@ -151,6 +150,14 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
     </dependency>
@@ -163,5 +170,6 @@
     <module>hamster-sprite-test</module>
     <module>hamster-sprite-service</module>
     <module>hamster-sprite-portal</module>
+    <module>hamster-sprite-api</module>
   </modules>
 </project>

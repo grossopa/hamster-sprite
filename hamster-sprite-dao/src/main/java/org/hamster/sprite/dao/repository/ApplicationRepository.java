@@ -3,7 +3,9 @@
  */
 package org.hamster.sprite.dao.repository;
 
-import org.hamster.sprite.dao.entity.AccountEntity;
+import java.util.List;
+
+import org.hamster.sprite.dao.entity.ApplicationEntity;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public interface ApplicationRepository extends PagingAndSortingRepository<AccountEntity, Long> {
-
+public interface ApplicationRepository extends PagingAndSortingRepository<ApplicationEntity, Long> {
+    
+    List<ApplicationEntity> findByNameAndStatus(String name, String status);
 }

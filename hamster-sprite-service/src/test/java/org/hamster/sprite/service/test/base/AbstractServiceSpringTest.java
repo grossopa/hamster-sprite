@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.core.test.base;
+package org.hamster.sprite.service.test.base;
 
 import org.hamster.core.api.environment.initializer.UnknownEnvironmentContextInitializer;
 import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spriteContext-config.xml" }, initializers = { UnknownEnvironmentContextInitializer.class })
-public abstract class AbstractCoreSpringTest {
+@ContextConfiguration(locations = { "classpath:/spriteContext-config.xml", "classpath:/spriteContext-dao.xml", "classpath:/spriteContext-service.xml" }, initializers = { UnknownEnvironmentContextInitializer.class })
+public abstract class AbstractServiceSpringTest {
 
 }
