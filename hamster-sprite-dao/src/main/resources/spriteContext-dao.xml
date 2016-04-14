@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
-    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
-    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-    xsi:schemaLocation="
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd"
-    default-lazy-init="true">
+  default-lazy-init="true">
 
   <!-- scan service class with @components -->
   <context:annotation-config />
@@ -23,8 +21,8 @@
     <property name="entityManagerFactory" ref="entityManagerFactory" />
   </bean>
 
-  <jpa:repositories base-package="org.hamster.sprite.dao.repository,org.hamster.core.dao.repository" entity-manager-factory-ref="entityManagerFactory"
-    transaction-manager-ref="transactionManager" repository-impl-postfix="Impl" />
+  <jpa:repositories base-package="org.hamster.sprite.dao.repository,org.hamster.core.dao.repository" entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager"
+    repository-impl-postfix="Impl" />
 
 
   <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -39,7 +37,7 @@
     <property name="jpaProperties">
       <props>
         <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-        <prop key="hibernate.hbm2ddl.auto">create</prop>
+        <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
         <prop key="hibernate.dialect">${hibernate.dialect}</prop>
         <prop key="hibernate.show_sql">true</prop>
         <prop key="hibernate.format_sql">false</prop>

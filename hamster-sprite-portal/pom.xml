@@ -10,14 +10,57 @@
   <name>Hamster Sprite Portal</name>
 
   <dependencies>
+    <!-- project -->
+    <dependency>
+      <groupId>org.hamster</groupId>
+      <artifactId>hamster-core-web</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.hamster.sprite</groupId>
       <artifactId>hamster-sprite-service</artifactId>
     </dependency>
 
+    <!-- spring webmvc -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
     </dependency>
+
+    <!-- Security -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-ehcache</artifactId>
+    </dependency>
+    <!-- Security End -->
+
+    <!-- Template engine -->
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-extras</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-servlet</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-jsp</artifactId>
+    </dependency>
+    <!-- Template engine End -->
   </dependencies>
 </project>
