@@ -62,5 +62,14 @@
       <artifactId>tiles-jsp</artifactId>
     </dependency>
     <!-- Template engine End -->
+
+    <!-- jsp -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency> 
+
+    <!-- Test start -->
+    <!-- Test end -->
   </dependencies>
 </project>
