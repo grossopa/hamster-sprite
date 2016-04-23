@@ -11,6 +11,11 @@
       <mvc:mapping path="/**" />
       <ref bean="localeChangeInterceptor" />
     </mvc:interceptor>
+    <mvc:interceptor>
+      <mvc:mapping path="/page/**" />
+      <bean class="org.hamster.sprite.portal.interceptor.PageInterceptor" />
+    </mvc:interceptor>
+
   </mvc:interceptors>
 
   <!-- static resources -->
