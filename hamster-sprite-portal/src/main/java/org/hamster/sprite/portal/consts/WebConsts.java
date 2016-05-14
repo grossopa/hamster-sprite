@@ -9,6 +9,11 @@ public final class WebConsts {
     private WebConsts() {}
     
     public static final String P            = "/page";
-    public static final String P_PASSWORD   = P + "/password";
+    public static final String W            = "/ws";
+    
+    public static final String P_PASSWORD               = P + "/password";
+    
+    public static final String W_PASSWORD                   = W + "/password";
+    public static final String W_PASSWORD_APP_CREATE        = "/application/create";
 }
 //@formatter:on

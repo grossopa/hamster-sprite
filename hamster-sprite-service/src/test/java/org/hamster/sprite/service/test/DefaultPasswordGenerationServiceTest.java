@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hamster.sprite.api.password.PasswordGenerationType;
-import com.hamster.sprite.api.password.exception.PasswordException;
 import com.jcabi.matchers.RegexMatchers;
 
 /**
@@ -24,7 +23,7 @@ public class DefaultPasswordGenerationServiceTest extends AbstractServiceSpringT
     DefaultPasswordGenerationServiceImpl service;
 
     @Test
-    public void testGeneratePassword() throws PasswordException {
+    public void testGeneratePassword() {
 
         String result = service.generatePassword(10, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
         String result2 = service.generatePassword(10, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
@@ -33,13 +32,13 @@ public class DefaultPasswordGenerationServiceTest extends AbstractServiceSpringT
     }
 
     @Test
-    public void testNumber() throws PasswordException {
+    public void testNumber() {
         String numberResult = service.generatePassword(12, PasswordGenerationType.NUMBER);
         MatcherAssert.assertThat(numberResult, RegexMatchers.matchesPattern("^[0-9]{12}$"));
     }
     
     @Test
-    public void testString() throws PasswordException {
+    public void testString() {
         String stringResult = service.generatePassword(24, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
         MatcherAssert.assertThat(stringResult, RegexMatchers.matchesPattern("^[a-zA-Z]{24}$"));
     }

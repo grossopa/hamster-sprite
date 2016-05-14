@@ -6,4 +6,11 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>hamster-sprite-api</artifactId>
+  
+  <dependencies>
+      <dependency>
+        <groupId>org.hamster</groupId>
+        <artifactId>hamster-core-api</artifactId>
+      </dependency>
+  </dependencies>
 </project>

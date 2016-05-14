@@ -19,4 +19,5 @@ public class TableConsts {
      * Default URL length
      */
     public static final int URL_LENGTH = 1024;
+    
 }

@@ -3,7 +3,7 @@
  */
 package org.hamster.sprite.dao.repository;
 
-import org.hamster.sprite.dao.entity.AccountEntity;
+import org.hamster.sprite.dao.entity.PasswordEntity;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public interface PasswordRepository extends PagingAndSortingRepository<AccountEntity, Long> {
-
+public interface PasswordRepository extends PagingAndSortingRepository<PasswordEntity, Long> {
+    
 }

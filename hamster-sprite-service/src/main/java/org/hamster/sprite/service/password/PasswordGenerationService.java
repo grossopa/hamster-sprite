@@ -3,8 +3,6 @@
  */
 package org.hamster.sprite.service.password;
 
-import com.hamster.sprite.api.password.exception.PasswordException;
-
 /**
  * generate random password
  * 
@@ -20,5 +18,5 @@ public interface PasswordGenerationService {
      * @param passwordGenerationType
      * @return generated password
      */
-    String generatePassword(int length, int passwordGenerationType) throws PasswordException;
+    String generatePassword(int length, int passwordGenerationType);
 }

@@ -13,8 +13,8 @@ import org.hamster.sprite.service.password.PasswordGenerationService;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
+import com.hamster.sprite.api.exception.Exceptions;
 import com.hamster.sprite.api.password.PasswordGenerationType;
-import com.hamster.sprite.api.password.exception.PasswordException;
 
 /**
  * generate password, seed comes from Math.random()
@@ -34,11 +34,11 @@ public class DefaultPasswordGenerationServiceImpl implements PasswordGenerationS
      * @see org.hamster.sprite.service.password.PasswordGenerationService#generatePassword(int)
      */
     @Override
-    public String generatePassword(int length, int passwordGenerationType) throws PasswordException {
+    public String generatePassword(int length, int passwordGenerationType) {
         SecureRandom random = new SecureRandom();
 
         if (length <= PasswordGenerationType.values().length) {
-            throw new PasswordException("Password length is less than " + PasswordGenerationType.values().length);
+            throw Exceptions.PWDC002.create(null, PasswordGenerationType.values().length);
         }
 
         char[] password = new char[length];
