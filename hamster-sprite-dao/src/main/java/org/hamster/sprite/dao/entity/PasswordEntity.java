@@ -16,6 +16,8 @@ import org.hibernate.envers.Audited;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * stores encrypted Password and Salt
@@ -23,7 +25,8 @@ import lombok.EqualsAndHashCode;
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @version 1.0
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @Audited
 @Entity

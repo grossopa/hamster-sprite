@@ -9,12 +9,15 @@ import org.hamster.core.api.model.base.ManageableIfc;
 import org.hamster.core.api.model.base.OrderIfc;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */
-@Data
+@Getter
+@Setter
 public class PasswordAccountDto implements ManageableIfc<Long>, OrderIfc<Long> {
     
     private String createdBy;
