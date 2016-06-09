@@ -8,7 +8,6 @@ import java.util.Date;
 import org.hamster.core.api.model.base.ManageableIfc;
 import org.hamster.core.api.model.base.OrderIfc;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

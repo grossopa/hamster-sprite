@@ -16,7 +16,6 @@ import org.hamster.core.dao.entity.base.ManageableEntity;
 import org.hamster.sprite.dao.consts.TableConsts;
 import org.hibernate.envers.Audited;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

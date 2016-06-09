@@ -3,7 +3,6 @@
  */
 package org.hamster.sprite.service.password.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
