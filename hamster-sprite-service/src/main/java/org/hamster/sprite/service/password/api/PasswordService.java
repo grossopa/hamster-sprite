@@ -27,4 +27,13 @@ public interface PasswordService {
      * @return
      */
     List<PasswordApplicationDto> findAllPasswordApplications();
+    
+    /**
+     * create application 
+     * 
+     * @param applicationName
+     * @param url
+     * @return
+     */
+    Long createApplication(String applicationName, String url);
 }

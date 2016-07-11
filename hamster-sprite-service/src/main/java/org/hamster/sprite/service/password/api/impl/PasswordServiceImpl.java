@@ -3,19 +3,17 @@
  */
 package org.hamster.sprite.service.password.api.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.collections4.ListUtils;
 import org.hamster.core.api.consts.StatusType;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.entity.PasswordEntity;
 import org.hamster.sprite.dao.repository.PasswordAccountRepository;
-import org.hamster.sprite.dao.repository.PasswordApplicationRepository;
 import org.hamster.sprite.service.password.PasswordAccountService;
+import org.hamster.sprite.service.password.PasswordApplicationService;
 import org.hamster.sprite.service.password.PasswordGenerationService;
 import org.hamster.sprite.service.password.api.PasswordService;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
@@ -24,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import com.hamster.sprite.api.exception.Exceptions;
 
@@ -42,7 +39,7 @@ public class PasswordServiceImpl implements PasswordService {
     private PasswordAccountRepository passwordAccountRepository;
     
     @Autowired
-    private PasswordApplicationRepository passwordApplicationRepository;
+    private PasswordApplicationService passwordApplicationService;
     
     @Autowired
     private PasswordAccountService passwordAccountService;
@@ -91,6 +88,15 @@ public class PasswordServiceImpl implements PasswordService {
         List<PasswordApplicationDto> result = new PasswordApplicationDtoMapper().mapList(list);
         // order here
         return result;
+    }
+
+    /* (non-Javadoc)
+     * @see org.hamster.sprite.service.password.api.PasswordService#createApplication(java.lang.String, java.lang.String)
+     */
+    @Override
+    public Long createApplication(String name, String url) {
+        PasswordApplicationEntity entity = passwordApplicationService.createApplication(name, url);
+        return entity.getId();
     }
     
     

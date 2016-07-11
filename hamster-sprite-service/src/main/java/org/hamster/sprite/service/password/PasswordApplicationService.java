@@ -26,4 +26,6 @@ public interface PasswordApplicationService {
      * @return true represents for existing
      */
     boolean checkNameExists(String name);
+    
+    List<Password>
 }
