@@ -3,6 +3,8 @@
  */
 package org.hamster.sprite.service.password.impl;
 
+import static org.hamster.sprite.service.password.impl.DefaultPasswordCharacterSupplierImpl.Characters.*;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.hamster.sprite.service.password.PasswordCharacterSupplier;
 import org.springframework.stereotype.Component;
@@ -15,26 +17,6 @@ import com.hamster.sprite.api.password.PasswordGenerationType;
  */
 @Component("DefaultPasswordCharacterSupplier")
 public class DefaultPasswordCharacterSupplierImpl implements PasswordCharacterSupplier {
-
-    /**
-     * all numbers
-     */
-    public static final char[] NUMBERS = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
-    /**
-     * all uppercases
-     */
-    public static final char[] UPPERCASES = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-
-    /**
-     * all lowercases
-     */
-    public static final char[] LOWERCASES = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-
-    /**
-     * all symbols
-     */
-    public static final char[] SYMBOLS = new char[] { '!', '@', '#', '$', '%', '^', '&', '(', ')', '-', '_', '=', '+' };
 
     /*
      * (non-Javadoc)
@@ -93,6 +75,30 @@ public class DefaultPasswordCharacterSupplierImpl implements PasswordCharacterSu
             return this.getUppercases();
         }
         throw new IllegalArgumentException("Illegal type value : " + type);
+    }
+
+    public static class Characters {
+        /**
+         * all numbers
+         */
+        public static final char[] NUMBERS = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        /**
+         * all uppercases
+         */
+        public static final char[] UPPERCASES = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+                'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+        /**
+         * all lowercases
+         */
+        public static final char[] LOWERCASES = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+        /**
+         * all symbols
+         */
+        public static final char[] SYMBOLS = new char[] { '!', '@', '#', '$', '%', '^', '&', '(', ')', '-', '_', '=', '+' };
     }
 
 }

@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hamster.core.api.consts.StatusType;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.entity.PasswordEntity;
@@ -55,7 +54,7 @@ public class PasswordServiceImpl implements PasswordService {
     @Override
     @Transactional
     public void createPassword(String applicationName, String accountName, int length, int generationType) {
-        PasswordApplicationEntity application = passwordApplicationRepository.findByNameAndStatus(applicationName, StatusType.ACTIVE);
+        PasswordApplicationEntity application = passwordApplicationService.findApplication(applicationName);
         if (application == null) {
             throw Exceptions.PWDC003.create(null, applicationName);
         }
@@ -67,9 +66,7 @@ public class PasswordServiceImpl implements PasswordService {
         
         String password = passwordGenerationService.generatePassword(length, generationType);
         
-        PasswordEntity passwordEntity = new PasswordEntity();
-        passwordEntity.setAccount(account);
-        passwordEntity.setPassword(password);
+        PasswordEntity passwordEntity = PasswordEntity.newInstance(account, password);
         account.setActivePassword(passwordEntity);
         
         if (account.getPasswords() == null) {
@@ -84,9 +81,8 @@ public class PasswordServiceImpl implements PasswordService {
      */
     @Override
     public List<PasswordApplicationDto> findAllPasswordApplications() {
-        Iterable<PasswordApplicationEntity> list = passwordApplicationRepository.findAll();
+        Iterable<PasswordApplicationEntity> list = passwordApplicationService.findAll();
         List<PasswordApplicationDto> result = new PasswordApplicationDtoMapper().mapList(list);
-        // order here
         return result;
     }
 

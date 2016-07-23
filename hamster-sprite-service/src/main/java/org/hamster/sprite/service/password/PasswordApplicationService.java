@@ -27,5 +27,18 @@ public interface PasswordApplicationService {
      */
     boolean checkNameExists(String name);
     
-    List<Password>
+    /**
+     * Find by name
+     * 
+     * @param name
+     * @return 
+     */
+    PasswordApplicationEntity findApplication(String name);
+    
+    /**
+     * find all applications
+     * @return
+     */
+    Iterable<PasswordApplicationEntity> findAll();
+    
 }

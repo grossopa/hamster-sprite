@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.service.test;
+package org.hamster.sprite.service.test.password.service;
 
 import org.hamcrest.MatcherAssert;
 import org.hamster.sprite.service.password.impl.DefaultPasswordGenerationServiceImpl;

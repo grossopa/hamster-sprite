@@ -15,5 +15,6 @@ public final class WebConsts {
     
     public static final String W_PASSWORD                   = W + "/password";
     public static final String W_PASSWORD_APP_CREATE        = "/application/create";
+    public static final String W_PASSWORD_APP_LIST          = "/application/list";
 }
 //@formatter:on

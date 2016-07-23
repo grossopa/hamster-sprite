@@ -45,5 +45,12 @@ public class PasswordApplicationEntity extends ManageableEntity implements Order
     
     @OneToMany(mappedBy = "application", fetch = FetchType.LAZY)
     List<PasswordAccountEntity> accounts;
+    
+    public static PasswordApplicationEntity newInstance(String name, String url) {
+        PasswordApplicationEntity entity = new PasswordApplicationEntity();
+        entity.setName(name);
+        entity.setUrl(url);
+        return entity;
+    }
 
 }

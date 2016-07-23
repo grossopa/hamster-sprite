@@ -42,4 +42,10 @@ public class PasswordEntity extends ManageableEntity {
     @Column(name = "salt", length = 10, nullable = false)
     private String salt;
 
+    public static PasswordEntity newInstance(PasswordAccountEntity account, String password) {
+        PasswordEntity entity = new PasswordEntity();
+        entity.setAccount(account);
+        entity.setPassword(password);
+        return entity;
+    }
 }

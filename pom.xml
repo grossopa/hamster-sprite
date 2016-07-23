@@ -3,11 +3,10 @@
   <parent>
     <groupId>org.hamster</groupId>
     <artifactId>hamster-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <groupId>org.hamster.sprite</groupId>
   <artifactId>hamster-sprite</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Hamster Sprite</name>
 
@@ -17,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.version>1.0.0-SNAPSHOT</project.version>
 
-    <hamster-parent.version>0.0.1-SNAPSHOT</hamster-parent.version>
+    <hamster-parent.version>1.0.0-SNAPSHOT</hamster-parent.version>
 
     <!-- database settings -->
     <mysql-connector-java.version>5.1.38</mysql-connector-java.version>

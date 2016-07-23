@@ -3,12 +3,15 @@
  */
 package org.hamster.sprite.service.password.impl;
 
+import org.hamster.core.api.consts.StatusType;
 import org.hamster.core.dao.util.EntityUtils;
 import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.repository.PasswordApplicationRepository;
 import org.hamster.sprite.service.password.PasswordApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,10 +41,8 @@ public class PasswordApplicationServiceImpl implements PasswordApplicationServic
         if (checkNameExists(name)) {
             throw Exceptions.PWDC001.create(null, name);
         }
-        
-        PasswordApplicationEntity newEntity = new PasswordApplicationEntity();
-        newEntity.setName(name);
-        newEntity.setUrl(url);
+
+        PasswordApplicationEntity newEntity = PasswordApplicationEntity.newInstance(name, url);
         EntityUtils.updateModifyInfo(newEntity, UserUtil.ANONYMOUS);
         return applicationRepository.save(newEntity);
     }
@@ -54,6 +55,26 @@ public class PasswordApplicationServiceImpl implements PasswordApplicationServic
     @Override
     public boolean checkNameExists(String name) {
         return applicationRepository.findByName(name) != null;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.sprite.service.password.PasswordApplicationService#findApplication(java.lang.String)
+     */
+    @Override
+    public PasswordApplicationEntity findApplication(String name) {
+        return applicationRepository.findByNameAndStatus(name, StatusType.ACTIVE);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.sprite.service.password.PasswordApplicationService#findAll()
+     */
+    @Override
+    public Iterable<PasswordApplicationEntity> findAll() {
+        return applicationRepository.findAll(new Sort(Direction.ASC, "name"));
     }
 
 }
