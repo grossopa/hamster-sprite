@@ -3,13 +3,15 @@
  */
 package org.hamster.sprite.dao.repository.base;
 
+import org.hamster.core.api.model.base.StatusIfc;
+
 /**
- * Other repositories can extend this class if name is unique of the entity with status enabled
+ * Other repositories can extend this class if name is unique and has status field
  * 
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */
-public interface UniqueNameRepository<T> {
+public interface UniqueNameRepository<T extends StatusIfc<?>> {
 
     /**
      * 

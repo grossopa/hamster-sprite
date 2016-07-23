@@ -39,6 +39,16 @@ public enum Exceptions {
      */
     PWDC005("PWDC005", "Could not find application with id {0}."),
     
+    /**
+     * Could not find user {0}.
+     */
+    USRC001("USRC001", "Could not find user {0}."), 
+    
+    /**
+     * Password is not correct, please try again.
+     */
+    USRC002("USRC002", "Password is not correct, please try again.")
+    
     ;
     //@formatter:on
 

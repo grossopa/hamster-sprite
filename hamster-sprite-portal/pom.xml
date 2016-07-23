@@ -31,25 +31,6 @@
       <artifactId>spring-webmvc</artifactId>
     </dependency>
 
-    <!-- Security -->
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-spring</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-ehcache</artifactId>
-    </dependency>
-    <!-- Security End -->
-
     <!-- Template engine -->
     <dependency>
       <groupId>org.apache.tiles</groupId>
