@@ -39,7 +39,12 @@ public class UserServiceImpl implements UserService {
         }
 
         UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password, guestDetails);
-        return LoginTokenDto.newInstance(userLoginEntity.getLoginToken(), userLoginEntity.getLoginTime().getTime(), userLoginEntity.getExpiresInMin());
+        return LoginTokenDto.newInstance(
+                userId,
+                user.getSalt().getBytes(),
+                userLoginEntity.getLoginToken(), 
+                userLoginEntity.getLoginTime().getTime(), 
+                userLoginEntity.getExpiresInMin());
     }
 
 }

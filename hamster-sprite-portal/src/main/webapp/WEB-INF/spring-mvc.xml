@@ -111,7 +111,7 @@
     <property name="paramName" value="lang" />
   </bean>
 
-
+  <import resource="classpath:spriteContext-service.xml" />
 
 
 </beans>

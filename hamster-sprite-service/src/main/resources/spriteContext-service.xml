@@ -10,5 +10,7 @@
 
   <context:annotation-config />
   <context:component-scan base-package="org.hamster.sprite.service" />
+  
+  <import resource="classpath:spriteContext-dao.xml" />
 
 </beans>

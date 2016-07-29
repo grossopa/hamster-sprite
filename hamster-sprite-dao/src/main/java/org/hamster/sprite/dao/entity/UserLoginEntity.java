@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import org.hamster.core.dao.entity.base.StatusEntity;
 import org.hamster.sprite.dao.consts.TableConsts;
+import org.hibernate.envers.Audited;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import lombok.Setter;
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @version 1.0
  */
+@Audited
 @Getter
 @Setter
 @Entity
