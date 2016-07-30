@@ -18,6 +18,8 @@ import org.hamster.core.dao.entity.base.ManageableEntity;
 import org.hamster.sprite.dao.consts.TableConsts;
 import org.hibernate.envers.Audited;
 
+import com.google.common.collect.Lists;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,7 +44,7 @@ public class PasswordAccountEntity extends ManageableEntity {
     private PasswordEntity activePassword;
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
-    private List<PasswordEntity> passwords;
+    private List<PasswordEntity> passwords = Lists.newArrayList();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "application_id")
@@ -50,5 +52,12 @@ public class PasswordAccountEntity extends ManageableEntity {
 
     @Column(name = "application_id", insertable = false, updatable = false)
     private Long applicationId;
+
+    public static PasswordAccountEntity newInstance(String accountName, PasswordApplicationEntity application) {
+        PasswordAccountEntity account = new PasswordAccountEntity();
+        account.setAccountName(accountName);
+        account.setApplication(application);
+        return account;
+    }
 
 }

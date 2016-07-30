@@ -36,6 +36,14 @@ public interface PasswordApplicationService {
     PasswordApplicationEntity findApplication(String name);
     
     /**
+     * Find application by id
+     * 
+     * @param id
+     * @return
+     */
+    PasswordApplicationEntity findApplication(Long id);
+    
+    /**
      * find all applications
      * @return
      */

@@ -26,7 +26,7 @@ public class PasswordAccountServiceImpl implements PasswordAccountService {
 
     @Autowired
     private PasswordAccountRepository passwordAccountRepository;
-    
+
     @Autowired
     private PasswordApplicationRepository passwordApplicationRepository;
 
@@ -51,18 +51,32 @@ public class PasswordAccountServiceImpl implements PasswordAccountService {
         if (applicationEntity == null) {
             throw Exceptions.PWDC005.create(null, applicationId);
         }
-        
+
         for (PasswordAccountEntity account : applicationEntity.getAccounts()) {
             if (accountName.equalsIgnoreCase(account.getAccountName())) {
                 throw Exceptions.PWDC004.create(null, accountName, applicationEntity.getName());
             }
         }
-        
+
         PasswordAccountEntity newAccountEntity = new PasswordAccountEntity();
         newAccountEntity.setAccountName(accountName);
         newAccountEntity.setApplication(applicationEntity);
-        EntityUtils.updateModifyInfo(newAccountEntity,  UserUtil.ANONYMOUS);
+        EntityUtils.updateModifyInfo(newAccountEntity, UserUtil.ANONYMOUS);
         return passwordAccountRepository.save(newAccountEntity);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.hamster.sprite.service.password.PasswordAccountService#findAccount(java.lang.Long)
+     */
+    @Override
+    public PasswordAccountEntity findAccount(Long accountId) {
+        PasswordAccountEntity account = passwordAccountRepository.findOne(accountId);
+        if (account == null) {
+            throw Exceptions.PWDC006.create(null, accountId);
+        }
+        return account;
     }
 
 }

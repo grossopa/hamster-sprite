@@ -35,9 +35,14 @@ public enum Exceptions {
     PWDC004("PWDC004", "Account {0} of Application {1} already exists."),
     
     /**
-     * Could not find application with name {0}.
+     * Could not find application with id {0}.
      */
     PWDC005("PWDC005", "Could not find application with id {0}."),
+    
+    /**
+     * Could not find account with id {0}.
+     */
+    PWDC006("PWDC006", "Could not find account with id {0}."),
     
     /**
      * Could not find user {0}.

@@ -5,6 +5,7 @@ package org.hamster.sprite.service.password.api;
 
 import java.util.List;
 
+import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
 
 /**
@@ -12,28 +13,45 @@ import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
  * @version 1.0
  */
 public interface PasswordService {
-
-    /**
-     * create a password with accountName under the application
-     * 
-     * @param applicationName
-     * @param accountName
-     */
-    void createPassword(String applicationName, String accountName, int length, int generationType);
     
     /**
-     * find out all password applications ordered by name
+     * Finds out all password applications ordered by name
      * 
      * @return
      */
     List<PasswordApplicationDto> findAllPasswordApplications();
     
     /**
-     * create application 
+     * Creates application 
      * 
      * @param applicationName
      * @param url
      * @return
      */
     Long createApplication(String applicationName, String url);
+    
+    /**
+     * Creates account under an application
+     * 
+     * @param applicationId
+     * @param account
+     */
+    void createAccount(Long applicationId, String account);
+    
+    /**
+     * Finds accounts under applications
+     * 
+     * @param applicationId
+     * @return
+     */
+    List<PasswordAccountDto> findAccountsByApplicationId(Long applicationId);
+    
+    /**
+     * Creates a password and marks it as active under account
+     * 
+     * @param accountId
+     * @param generationType
+     * @param length
+     */
+    void createPassword(Long accountId, int generationType, int length);
 }

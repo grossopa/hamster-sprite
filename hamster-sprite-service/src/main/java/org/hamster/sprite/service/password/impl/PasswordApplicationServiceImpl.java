@@ -64,7 +64,11 @@ public class PasswordApplicationServiceImpl implements PasswordApplicationServic
      */
     @Override
     public PasswordApplicationEntity findApplication(String name) {
-        return applicationRepository.findByNameAndStatus(name, StatusType.ACTIVE);
+        PasswordApplicationEntity entity = applicationRepository.findByNameAndStatus(name, StatusType.ACTIVE);
+        if (entity == null) {
+            throw Exceptions.PWDC003.create(null, entity);
+        }
+        return entity;
     }
 
     /*
@@ -75,6 +79,20 @@ public class PasswordApplicationServiceImpl implements PasswordApplicationServic
     @Override
     public Iterable<PasswordApplicationEntity> findAll() {
         return applicationRepository.findAll(new Sort(Direction.ASC, "name"));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.sprite.service.password.PasswordApplicationService#findApplication(java.lang.Long)
+     */
+    @Override
+    public PasswordApplicationEntity findApplication(Long id) {
+        PasswordApplicationEntity entity = applicationRepository.findOne(id);
+        if (entity == null) {
+            throw Exceptions.PWDC005.create(null, id);
+        }
+        return entity;
     }
 
 }

@@ -21,6 +21,14 @@ public interface PasswordAccountService {
      * @return
      */
     PasswordAccountEntity findAccount(Long applicationId, String accountName);
+    
+    /**
+     * Finds account by id
+     * 
+     * @param accountId
+     * @return
+     */
+    PasswordAccountEntity findAccount(Long accountId);
 
     /**
      * create an account under existing application
