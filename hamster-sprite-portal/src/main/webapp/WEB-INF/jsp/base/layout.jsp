@@ -10,8 +10,6 @@
 <title></title>
 </head>
 <body>
-${context_path} 
-
 <div id="ng" ng-controller="QueryController"></div>
 </body>
 </html>

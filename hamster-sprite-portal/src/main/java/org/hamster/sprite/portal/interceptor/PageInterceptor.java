@@ -19,7 +19,8 @@ public class PageInterceptor extends AbstractPageInterceptor {
     public static final String RESOURCE_JS = "resource_js";
     public static final String RESOURCE_CSS = "resource_css";
     public static final String WEB_API = "web_api";
-
+    public static final String APPLICATION = "application";
+    
     /*
      * (non-Javadoc)
      * 
@@ -42,6 +43,7 @@ public class PageInterceptor extends AbstractPageInterceptor {
         mav.addObject(RESOURCE_JS, request.getContextPath() + "/resources/js");
         mav.addObject(RESOURCE_CSS, request.getContextPath() + "/resources/css");
         mav.addObject(WEB_API, WebConsts.toMap());
+        mav.addObject(APPLICATION, mav.)
     }
 
 }
