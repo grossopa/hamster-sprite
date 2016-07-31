@@ -6,6 +6,7 @@ requirejs.config({
     jquery : 'libs/node_modules/jquery/dist/jquery',
     underscore : 'libs/node_modules/underscore/underscore',
     moment : 'libs/node_modules/moment/moment',
+    Q : 'libs/node_modules/q/q'
   },
   shim : {
     backbone : {

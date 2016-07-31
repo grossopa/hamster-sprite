@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="t"%>
 
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <base href="${context_path}/">
-<tiles:insertAttribute name="head" />
+<t:insertAttribute name="head" />
 <title></title>
 </head>
 <body>
-<div id="ng" ng-controller="QueryController"></div>
+  <t:insertAttribute name="body" />
 </body>
 </html>

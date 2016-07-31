@@ -43,7 +43,6 @@ public class PageInterceptor extends AbstractPageInterceptor {
         mav.addObject(RESOURCE_JS, request.getContextPath() + "/resources/js");
         mav.addObject(RESOURCE_CSS, request.getContextPath() + "/resources/css");
         mav.addObject(WEB_API, WebConsts.toMap());
-        mav.addObject(APPLICATION, mav.)
     }
 
 }
