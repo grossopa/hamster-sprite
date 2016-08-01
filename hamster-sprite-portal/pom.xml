@@ -64,7 +64,7 @@
 
   <build>
     <plugins>
-      <!-- npm -->
+      <!-- npm 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -84,7 +84,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
     </plugins>
     <pluginManagement>
       <plugins>

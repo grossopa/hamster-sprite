@@ -27,6 +27,6 @@ public class WebConstsTest {
         assertTrue(result.containsKey("W_PASSWORD"));
         assertTrue(result.containsKey("W_PASSWORD_ACC_CREATE"));
         
-        assertEquals(WebConsts.W_PASSWORD_ACC_CREATE, result.get("W_PASSWORD_ACC_CREATE"));
+        assertEquals(WebConsts.W_PASSWORD + WebConsts.W_PASSWORD_ACC_CREATE, result.get("W_PASSWORD_ACC_CREATE"));
     }
 }
