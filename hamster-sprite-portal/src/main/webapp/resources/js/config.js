@@ -16,8 +16,9 @@ requirejs.config({
   }
 });
 
-define([ 'backbone', 'jquery', 'moment', 'underscore' ], function(backbone, $, moment, _) {
+define([ 'backbone', 'jquery', 'moment', 'underscore', 'Q'], function(backbone, $, moment, _, Q) {
   // expose to global variables for ease to use
   window.$ = $;
   window._ = _;
+  window.Q = Q;
 });

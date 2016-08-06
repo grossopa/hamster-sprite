@@ -1,4 +1,4 @@
-define(['core/Context', 'Q'], function(Context, Q) {
+define(['core/Context'], function(Context) {
   Q.fcall($.ajax(Context.getWsUrl('W_PASSWORD_APP_LIST'), {
     method : 'GET'
   }))
