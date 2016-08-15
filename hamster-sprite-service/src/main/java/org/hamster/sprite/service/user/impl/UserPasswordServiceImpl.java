@@ -35,7 +35,7 @@ public class UserPasswordServiceImpl implements UserPasswordService {
     @Override
     public ByteSource generateSalt() {
         RandomNumberGenerator rng = new SecureRandomNumberGenerator();
-        return rng.nextBytes();
+        return rng.nextBytes(12);
     }
 
     /* (non-Javadoc)

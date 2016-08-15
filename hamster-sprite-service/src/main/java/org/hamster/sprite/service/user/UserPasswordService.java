@@ -21,7 +21,7 @@ public interface UserPasswordService {
     public String hashPassword(String password, ByteSource salt);
 
     /**
-     * generate random source
+     * generate random salt
      * 
      * @return
      */

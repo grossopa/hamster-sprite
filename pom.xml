@@ -161,6 +161,27 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <workingDirectory>hamster-sprite-dao</workingDirectory>
+          <mainClass>com.hamster.sprite.dao.test.functional.GenerateSqls</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 
   <modules>
     <module>hamster-sprite-dao</module>
