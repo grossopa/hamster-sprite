@@ -41,7 +41,7 @@ public class PasswordApplicationEntity extends ManageableEntity implements Order
     private String url;
 
     @Column(name = OrderIfc.COL_NAME)
-    private Integer Order;
+    private Integer order;
     
     @OneToMany(mappedBy = "application", fetch = FetchType.LAZY)
     List<PasswordAccountEntity> accounts;

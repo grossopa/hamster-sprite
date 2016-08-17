@@ -17,8 +17,8 @@ public class GenerateSqls {
     private static final Excel2SQLGenerator generator = new Excel2SQLGenerator();
 
     public static final void main(String[] args) throws IllegalAccessException, InstantiationException, IOException {
-        File excelFile = new File("hamster-sprite-dao/src/test/resources/sql/test-data.xlsx");
-        File output = new File("hamster-sprite-dao/src/main/resources/sqls/test");
+        File excelFile = new File("src/test/resources/sql/test-data.xlsx");
+        File output = new File("src/main/resources/sqls/test");
 
         generator.generate(excelFile, output);
     }

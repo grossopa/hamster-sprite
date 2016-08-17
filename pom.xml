@@ -161,7 +161,7 @@
     </dependency>
   </dependencies>
 
-  <build>
+  <!-- <build>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -176,11 +176,11 @@
         <configuration>
           <executable>java</executable>
           <workingDirectory>hamster-sprite-dao</workingDirectory>
-          <mainClass>com.hamster.sprite.dao.test.functional.GenerateSqls</mainClass>
+          <mainClass>org.hamster.sprite.dao.functional.GenerateSqls.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
-  </build>
+  </build> -->
 
 
   <modules>
