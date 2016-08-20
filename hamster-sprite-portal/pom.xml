@@ -25,10 +25,9 @@
       <artifactId>hamster-sprite-service</artifactId>
     </dependency>
 
-    <!-- spring webmvc -->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-juli</artifactId>
     </dependency>
 
     <!-- Template engine -->
@@ -48,18 +47,6 @@
     </dependency>
     <!-- Template engine End -->
 
-    <!-- jsp -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-    </dependency>
-
-    <!-- Test start -->
-    <!-- Test end -->
   </dependencies>
 
   <build>

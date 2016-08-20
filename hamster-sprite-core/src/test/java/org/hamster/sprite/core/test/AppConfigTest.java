@@ -21,6 +21,6 @@ public class AppConfigTest extends AbstractCoreSpringTest {
     @Test
     public void testBase() {
         Assert.assertNotNull(appConfig);
-        Assert.assertNotNull(appConfig.getVersion());
+        Assert.assertNotNull(appConfig.getUserExpiredInMin());
     }
 }

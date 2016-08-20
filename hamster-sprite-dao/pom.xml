@@ -20,25 +20,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.hamster</groupId>
-      <artifactId>hamster-core-test</artifactId>
-    </dependency>
-
-    <!-- Data accessing -->
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-jpa</artifactId>
-    </dependency>
-
-    <!-- javax transaction -->
-    <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>jta</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.el</groupId>
-      <artifactId>javax.el-api</artifactId>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
     </dependency>
 
     <dependency>
@@ -52,10 +35,6 @@
       <artifactId>hamster-sprite-test</artifactId>
     </dependency>
 
-
   </dependencies>
-  
-  
-  
-  
+
 </project>
