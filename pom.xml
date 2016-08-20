@@ -116,14 +116,8 @@
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -161,26 +155,9 @@
     </dependency>
   </dependencies>
 
-  <!-- <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <executable>java</executable>
-          <workingDirectory>hamster-sprite-dao</workingDirectory>
-          <mainClass>org.hamster.sprite.dao.functional.GenerateSqls.Main</mainClass>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build> -->
+  <!-- <build> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>exec-maven-plugin</artifactId> <executions> <execution> <goals> <goal>java</goal> </goals> </execution> </executions> 
+    <configuration> <executable>java</executable> <workingDirectory>hamster-sprite-dao</workingDirectory> <mainClass>org.hamster.sprite.dao.functional.GenerateSqls.Main</mainClass> </configuration> </plugin> 
+    </plugins> </build> -->
 
 
   <modules>
