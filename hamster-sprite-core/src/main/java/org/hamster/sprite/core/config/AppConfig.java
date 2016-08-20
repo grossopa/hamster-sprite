@@ -13,11 +13,12 @@ import lombok.Getter;
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */
+@Component
 @Getter
 @ConfigurationProperties(prefix="sprite")
 @PropertySource({ 
-    "classpath:/config/application-sprite-portal.yml",
-    "classpath:/config/${spring.profiles.active}/application.${spring.profiles.active}.yml"})
+    "classpath:/config/application-sprite-portal.properties",
+    "classpath:/config/${spring.profiles.active}/application.${spring.profiles.active}.properties"})
 public class AppConfig {
     
     private Long userExpiredInMin;

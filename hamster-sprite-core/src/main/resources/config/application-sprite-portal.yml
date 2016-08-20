@@ -1,4 +1,0 @@
-sprite:
-  environment: DEV
-  version: 1.0.0-SNAPSHOT
-  userExpiredInMin : 60000

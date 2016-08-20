@@ -15,5 +15,5 @@ import org.springframework.stereotype.Component;
 @Configuration
 @EnableConfigurationProperties(AppConfig.class)
 public class AppConfigHolder {
-
+    
 }
