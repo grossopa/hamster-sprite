@@ -6,6 +6,7 @@ package org.hamster.sprite.portal.password.controller;
 import org.hamster.core.web.controller.page.AbstractPageController;
 import org.hamster.sprite.portal.consts.WebConsts;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(WebConsts.P_PASSWORD)
 public class PasswordPageController extends AbstractPageController {
     
-    @RequestMapping
+    @GetMapping
     public String home() {
         return "sprite.password.home";
     }
