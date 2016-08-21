@@ -39,13 +39,17 @@ public class PasswordEntity extends ManageableEntity {
     @Column(name = "password", length = 2000, nullable = false)
     private String password;
 
-    @Column(name = "salt", length = 10, nullable = false)
+    @Column(name = "salt", length = 20, nullable = false)
     private String salt;
+    
+    @Column(name = "current", nullable = false)
+    private Boolean current;
 
     public static PasswordEntity newInstance(PasswordAccountEntity account, String password) {
         PasswordEntity entity = new PasswordEntity();
         entity.setAccount(account);
         entity.setPassword(password);
+        entity.setCurrent(true);
         return entity;
     }
 }

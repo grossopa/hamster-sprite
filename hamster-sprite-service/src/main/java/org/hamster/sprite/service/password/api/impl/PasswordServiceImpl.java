@@ -101,7 +101,6 @@ public class PasswordServiceImpl implements PasswordService {
         PasswordAccountEntity account = passwordAccountService.findAccount(accountId);
         String password = passwordGenerationService.generatePassword(length, generationType);
         PasswordEntity passwordEntity = PasswordEntity.newInstance(account, password);
-        account.setActivePassword(passwordEntity);
         account.getPasswords().add(passwordEntity);
         passwordAccountRepository.save(account);
     }

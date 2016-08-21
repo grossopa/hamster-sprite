@@ -39,10 +39,6 @@ public class PasswordAccountEntity extends ManageableEntity {
     @Column(name = "account_name", length = 100, nullable = true)
     private String accountName;
 
-    @OneToOne
-    @JoinColumn(name = "active_password_id")
-    private PasswordEntity activePassword;
-
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
     private List<PasswordEntity> passwords = Lists.newArrayList();
 

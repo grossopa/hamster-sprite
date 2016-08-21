@@ -37,7 +37,7 @@ public class UserEntity extends ManageableEntity {
     @Column(name = "password", length = 2000, nullable = false)
     private String password;
 
-    @Column(name = "salt", length = 10, nullable = false)
+    @Column(name = "salt", length = 20, nullable = false)
     private String salt;
     
     @OneToMany
