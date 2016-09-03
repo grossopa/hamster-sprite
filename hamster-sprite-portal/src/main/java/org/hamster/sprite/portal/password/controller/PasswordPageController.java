@@ -3,8 +3,10 @@
  */
 package org.hamster.sprite.portal.password.controller;
 
-import org.hamster.core.web.controller.page.AbstractPageController;
 import org.hamster.sprite.portal.consts.WebConsts;
+import org.hamster.sprite.portal.controller.SpritePageController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(WebConsts.P_PASSWORD)
-public class PasswordPageController extends AbstractPageController {
+public class PasswordPageController extends SpritePageController {
+    
+    private static final Logger log = LoggerFactory.getLogger(PasswordPageController.class);
     
     @GetMapping
     public String home() {
-        return "sprite.password.home";
+        log.info("Invoked");
+        return "password/home";
     }
+
+    @Override
+    public String getApplication() {
+        return "password";
+    }
+    
 }

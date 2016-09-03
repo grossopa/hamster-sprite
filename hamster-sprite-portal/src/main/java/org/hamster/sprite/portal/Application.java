@@ -6,7 +6,6 @@ package org.hamster.sprite.portal;
 import javax.sql.DataSource;
 
 import org.hamster.core.web.spring.boot.AbstractApplication;
-import org.hamster.sprite.portal.interceptor.PageInterceptor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -40,11 +39,6 @@ public class Application extends AbstractApplication {
     @ConfigurationProperties(prefix = "datasource.primary")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
-    }
-
-    @Bean
-    public PageInterceptor pageInterceptor() {
-        return new PageInterceptor();
     }
 
 }

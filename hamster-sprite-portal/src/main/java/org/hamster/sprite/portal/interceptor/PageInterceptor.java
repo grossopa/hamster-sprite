@@ -40,8 +40,6 @@ public class PageInterceptor extends AbstractPageInterceptor {
      */
     protected void buildModelAndView(HttpServletRequest request, HttpServletResponse response, ModelAndView mav) {
         super.buildModelAndView(request, response, mav);
-        mav.addObject(RESOURCE_JS, request.getContextPath() + "/resources/js");
-        mav.addObject(RESOURCE_CSS, request.getContextPath() + "/resources/css");
         mav.addObject(WEB_API, WebConsts.toMap());
     }
 

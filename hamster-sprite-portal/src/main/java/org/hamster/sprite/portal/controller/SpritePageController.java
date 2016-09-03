@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package org.hamster.sprite.portal.controller;
+
+import org.hamster.core.web.controller.page.AbstractPageController;
+import org.hamster.sprite.portal.consts.WebConsts;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+/**
+ * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
+ * @since 1.0
+ */
+public abstract class SpritePageController extends AbstractPageController {
+    
+    @Autowired
+    private ObjectMapper objectMapper;
+    
+    @ModelAttribute("web_api")
+    public String getWebApi() throws JsonProcessingException {
+        return objectMapper.writeValueAsString(WebConsts.toMap());
+    }
+}
