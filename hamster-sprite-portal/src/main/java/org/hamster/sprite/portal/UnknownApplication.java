@@ -12,6 +12,11 @@ import org.springframework.boot.SpringApplication;
  */
 public class UnknownApplication extends Application {
 
+    /**
+     * Application entrance
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(new Object[] { UnknownApplication.class });
         application.addInitializers(new UnknownEnvironmentContextInitializer());

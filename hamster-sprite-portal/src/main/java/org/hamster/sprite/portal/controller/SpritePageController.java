@@ -3,6 +3,9 @@
  */
 package org.hamster.sprite.portal.controller;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.hamster.core.api.environment.Environment;
@@ -17,6 +20,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
+ * 
+ * 
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */
@@ -46,7 +51,10 @@ public abstract class SpritePageController extends AbstractPageController {
         
         // only serves non-production environment
         if (!Environment.isProd()) {
-            
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            ex.printStackTrace(pw);
+            mav.addObject("exceptionDetails", sw.toString());
         }
         return mav;
     }

@@ -27,6 +27,9 @@ public final class WebConsts {
 
     public static final String P = "/page";
     public static final String W = "/ws";
+    
+    public static final String P_PUBLIC = P + "/public";
+    public static final String W_PUBLIC = W + "/public";
 
     public static final String P_PASSWORD = P + "/password";
 

@@ -27,6 +27,7 @@ public class PasswordPageController extends SpritePageController {
         return "password/home";
     }
     
+    @GetMapping("/error")
     public String errorTest() {
         throw new RuntimeException("NullPointerException dddd cccc dddd");
     }
