@@ -3,10 +3,15 @@
  */
 package org.hamster.sprite.portal.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.hamster.core.api.environment.Environment;
 import org.hamster.core.web.controller.page.AbstractPageController;
 import org.hamster.sprite.portal.consts.WebConsts;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,5 +28,26 @@ public abstract class SpritePageController extends AbstractPageController {
     @ModelAttribute("web_api")
     public String getWebApi() throws JsonProcessingException {
         return objectMapper.writeValueAsString(WebConsts.toMap());
+    }
+    
+    /**
+     * Default exception handler to handle all types of exceptions and return
+     * a uniformed exception page.
+     * 
+     * @param request
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(Exception.class)
+    public ModelAndView pageException(HttpServletRequest request, Exception ex) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("error/general");
+        mav.addObject("exceptionDto", super.handleException(ex));
+        
+        // only serves non-production environment
+        if (!Environment.isProd()) {
+            
+        }
+        return mav;
     }
 }

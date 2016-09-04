@@ -26,6 +26,10 @@ public class PasswordPageController extends SpritePageController {
         log.info("Invoked");
         return "password/home";
     }
+    
+    public String errorTest() {
+        throw new RuntimeException("NullPointerException dddd cccc dddd");
+    }
 
     @Override
     public String getApplication() {
