@@ -10,6 +10,8 @@ import org.hamster.sprite.service.user.api.UserService;
 import org.hamster.sprite.service.user.dto.GuestDetails;
 import org.hamster.sprite.service.user.dto.LoginTokenDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,10 +43,20 @@ public class UserServiceImpl implements UserService {
         UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password, guestDetails);
         return LoginTokenDto.newInstance(
                 userId,
-                user.getSalt().getBytes(),
+                user.findSalt().getBytes(),
                 userLoginEntity.getLoginToken(), 
                 userLoginEntity.getLoginTime().getTime(), 
                 userLoginEntity.getExpiresInMin());
+    }
+
+    /* 
+     * (non-Javadoc)
+     *
+     * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
+     */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 
 }

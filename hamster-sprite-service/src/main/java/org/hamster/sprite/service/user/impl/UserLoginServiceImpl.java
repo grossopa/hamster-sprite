@@ -59,8 +59,8 @@ public class UserLoginServiceImpl implements UserLoginService {
         if (user == null) {
             throw Exceptions.USRC001.create(null, userId);
         }
-
-        String hashedPassword = userPasswordService.hashPassword(password, ByteSource.Util.bytes(user.getSalt()));
+        
+        String hashedPassword = userPasswordService.hashPassword(password, ByteSource.Util.bytes(user.findSalt()));
 
         if (!hashedPassword.equals(user.getPassword())) {
             throw Exceptions.USRC002.create(null);

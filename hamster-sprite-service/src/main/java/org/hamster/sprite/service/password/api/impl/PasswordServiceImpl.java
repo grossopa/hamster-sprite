@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.entity.PasswordEntity;
@@ -104,4 +105,5 @@ public class PasswordServiceImpl implements PasswordService {
         account.getPasswords().add(passwordEntity);
         passwordAccountRepository.save(account);
     }
+
 }

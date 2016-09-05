@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>

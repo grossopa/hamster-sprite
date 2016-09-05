@@ -25,6 +25,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -74,8 +75,6 @@ public class Application extends AbstractApplication {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            
-            
             //@formatter:off
             http
                 .authorizeRequests()
@@ -94,6 +93,8 @@ public class Application extends AbstractApplication {
 
         @Override
         public void configure(AuthenticationManagerBuilder auth) throws Exception {
+            AuthenticationProvider
+            auth.
         }
 
         public static class DefaultAuthenticationSuccessHandler implements AuthenticationSuccessHandler {

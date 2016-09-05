@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hamster.core.dao.entity.base.ManageableEntity;
+import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.consts.TableConsts;
 import org.hibernate.envers.Audited;
 
@@ -31,16 +32,17 @@ import lombok.Setter;
 @Table(name = TableConsts.TABLE_PREFIX + "user")
 public class UserEntity extends ManageableEntity {
 
-    @Column(name = "user_id", length = 200, nullable = false)
-    private String userId;
+    @Column(name = "username", length = 100, nullable = false)
+    private String username;
 
-    @Column(name = "password", length = 2000, nullable = false)
+    @Column(name = "password", length = 200, nullable = false)
     private String password;
 
-    @Column(name = "salt", length = 20, nullable = false)
-    private String salt;
-    
     @OneToMany
     @JoinColumn(name = "user_id")
     private Set<UserLoginEntity> logins = Sets.newHashSet();
+    
+    public String findSalt() {
+        return UserUtil.getSalt(getPassword());
+    }
 }
