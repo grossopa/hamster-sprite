@@ -93,8 +93,6 @@ public class Application extends AbstractApplication {
 
         @Override
         public void configure(AuthenticationManagerBuilder auth) throws Exception {
-            AuthenticationProvider
-            auth.
         }
 
         public static class DefaultAuthenticationSuccessHandler implements AuthenticationSuccessHandler {

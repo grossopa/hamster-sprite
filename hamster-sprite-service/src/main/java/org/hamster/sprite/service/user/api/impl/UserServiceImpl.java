@@ -31,16 +31,16 @@ public class UserServiceImpl implements UserService {
     /*
      * (non-Javadoc)
      * 
-     * @see org.hamster.sprite.service.user.api.UserService#userLogin(java.lang.String, java.lang.String)
+     * @see org.hamster.sprite.service.user.api.UserService#userLogin(java.lang.String)
      */
     @Override
-    public LoginTokenDto userLogin(String userId, String password, GuestDetails guestDetails) {
+    public LoginTokenDto userLogin(String userId, String password) {
         UserEntity user = userLoginService.findUser(userId);
         if (user == null) {
             throw Exceptions.USRC001.create(null, userId);
         }
 
-        UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password, guestDetails);
+        UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password);
         return LoginTokenDto.newInstance(
                 userId,
                 user.findSalt().getBytes(),

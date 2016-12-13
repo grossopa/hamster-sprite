@@ -21,7 +21,7 @@ public interface UserService extends UserDetailsService {
      * @param guestDetails
      * @return
      */
-    LoginTokenDto userLogin(String userId, String password, GuestDetails guestDetails);
+    LoginTokenDto userLogin(String userId, String password);
     
     
 
