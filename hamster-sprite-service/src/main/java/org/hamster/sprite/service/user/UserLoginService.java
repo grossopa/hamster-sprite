@@ -13,12 +13,12 @@ import org.hamster.sprite.dao.entity.UserLoginEntity;
 public interface UserLoginService {
 
     /**
-     * find user by user id
+     * find user by username
      * 
-     * @param userId
+     * @param username
      * @return
      */
-    UserEntity findUser(String userId);
+    UserEntity findUser(String username);
 
     /**
      * login a user by using user details
@@ -27,5 +27,5 @@ public interface UserLoginService {
      * @param password
      * @return
      */
-    UserLoginEntity userLogin(String userId, String password);
+    UserLoginEntity userLogin(String username, String password);
 }

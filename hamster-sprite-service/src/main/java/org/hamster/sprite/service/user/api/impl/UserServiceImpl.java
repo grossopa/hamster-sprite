@@ -7,7 +7,6 @@ import org.hamster.sprite.dao.entity.UserEntity;
 import org.hamster.sprite.dao.entity.UserLoginEntity;
 import org.hamster.sprite.service.user.UserLoginService;
 import org.hamster.sprite.service.user.api.UserService;
-import org.hamster.sprite.service.user.dto.GuestDetails;
 import org.hamster.sprite.service.user.dto.LoginTokenDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,7 +42,6 @@ public class UserServiceImpl implements UserService {
         UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password);
         return LoginTokenDto.newInstance(
                 userId,
-                user.findSalt().getBytes(),
                 userLoginEntity.getLoginToken(), 
                 userLoginEntity.getLoginTime().getTime(), 
                 userLoginEntity.getExpiresInMin());

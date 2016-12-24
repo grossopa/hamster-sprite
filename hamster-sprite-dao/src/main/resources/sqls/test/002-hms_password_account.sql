@@ -1,4 +1,4 @@
--- table hms_password_account rows count 4, Date 8/21/16 12:00 PM
+-- table hms_password_account rows count 4, Date 12/24/16 2:56 PM
 INSERT INTO hms_password_account (id, account_name, application_id, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (1, 'dummy_sina@hotmail.com', 1, 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');
 INSERT INTO hms_password_account (id, account_name, application_id, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (2, 'dummy_sina2@hotmail.com', 1, 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');
 INSERT INTO hms_password_account (id, account_name, application_id, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (3, 'dummy_email@hotmail.com', 1, 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');

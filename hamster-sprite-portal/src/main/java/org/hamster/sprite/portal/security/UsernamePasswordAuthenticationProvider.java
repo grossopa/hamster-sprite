@@ -6,9 +6,7 @@ package org.hamster.sprite.portal.security;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.shiro.session.InvalidSessionException;
 import org.hamster.sprite.service.user.api.UserService;
-import org.hamster.sprite.service.user.dto.GuestDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,7 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
@@ -41,11 +38,9 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
 
         try {
             userService.userLogin(userId, password);
-
             List<GrantedAuthority> grantedRoles = new ArrayList<>();
-
             return new UsernamePasswordAuthenticationToken(userId, password, grantedRoles);
-        } catch (InvalidSessionException e) {
+        } catch (Exception e) {
             throw new AuthenticationCredentialsNotFoundException("Username or password was not accepted", e);
         }
     }
