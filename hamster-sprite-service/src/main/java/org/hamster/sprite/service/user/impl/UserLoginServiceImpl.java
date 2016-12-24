@@ -50,11 +50,10 @@ public class UserLoginServiceImpl implements UserLoginService {
     /*
      * (non-Javadoc)
      * 
-     * @see org.hamster.sprite.service.user.UserLoginService#userLogin(java.lang.String, java.lang.String,
-     * org.hamster.sprite.service.user.dto.GuestDetails)
+     * @see org.hamster.sprite.service.user.UserLoginService#userLogin(java.lang.String, java.lang.String)
      */
     @Override
-    public UserLoginEntity userLogin(String userId, String password, GuestDetails guestDetails) {
+    public UserLoginEntity userLogin(String userId, String password) {
         UserEntity user = findUser(userId);
         if (user == null) {
             throw Exceptions.USRC001.create(null, userId);
@@ -66,22 +65,17 @@ public class UserLoginServiceImpl implements UserLoginService {
             throw Exceptions.USRC002.create(null);
         }
 
-        UserLoginEntity loginEntity = createUserLoginEntity(guestDetails);
+        UserLoginEntity loginEntity = createUserLoginEntity();
         user.getLogins().add(loginEntity);
         userRepository.save(user);
-
         return loginEntity;
     }
 
-    private UserLoginEntity createUserLoginEntity(GuestDetails guestDetails) {
+    private UserLoginEntity createUserLoginEntity() {
         UserLoginEntity entity = new UserLoginEntity();
-        entity.setExpiresInMin(appConfig.getUserExpiredInMin());
-        entity.setLoginFromIpAddress(guestDetails.getIpAddress());
         entity.setLoginTime(new Date());
-        entity.setRequestToken(guestDetails.getRequestToken());
         entity.setStatus(StatusType.ACTIVE);
         entity.setLoginToken(userPasswordService.generateToken());
-        entity.setUserAgent(guestDetails.getUserAgent());
         return entity;
     }
 
