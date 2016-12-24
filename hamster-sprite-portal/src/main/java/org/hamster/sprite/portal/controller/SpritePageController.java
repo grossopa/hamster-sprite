@@ -26,18 +26,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @since 1.0
  */
 public abstract class SpritePageController extends AbstractPageController {
-    
+
     @Autowired
     private ObjectMapper objectMapper;
-    
+
     @ModelAttribute("web_api")
     public String getWebApi() throws JsonProcessingException {
         return objectMapper.writeValueAsString(WebConsts.toMap());
     }
-    
+
+    @ModelAttribute("login")
+    public String login() {
+        return "login";
+    }
+
     /**
-     * Default exception handler to handle all types of exceptions and return
-     * a uniformed exception page.
+     * Default exception handler to handle all types of exceptions and return a uniformed exception page.
      * 
      * @param request
      * @param ex
@@ -48,7 +52,7 @@ public abstract class SpritePageController extends AbstractPageController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("error/general");
         mav.addObject("exceptionDto", super.handleException(ex));
-        
+
         // only serves non-production environment
         if (!Environment.isProd()) {
             StringWriter sw = new StringWriter();

@@ -3,7 +3,6 @@
  */
 package org.hamster.sprite.service.user.api;
 
-import org.hamster.sprite.service.user.dto.GuestDetails;
 import org.hamster.sprite.service.user.dto.LoginTokenDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 

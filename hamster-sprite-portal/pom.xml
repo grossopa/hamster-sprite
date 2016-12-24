@@ -26,26 +26,14 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-juli</artifactId>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jsp-api</artifactId>
     </dependency>
-
-    <!-- Template engine -->
+    
     <dependency>
-      <groupId>org.apache.tiles</groupId>
-      <artifactId>tiles-extras</artifactId>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.apache.tiles</groupId>
-      <artifactId>tiles-servlet</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.tiles</groupId>
-      <artifactId>tiles-jsp</artifactId>
-    </dependency>
-    <!-- Template engine End -->
 
   </dependencies>
 
