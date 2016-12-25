@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html layout:decorator="/base/layout">
+<head>
+<title>User Login Home</title>
+</head>
+<body>
+  <section layout:fragment="mainContent">
+    <form action="/portal/ws/user/login">
+        <input type="text" name="u"></input> 
+        <input type="password" name="p"></input>
+        <input type="submit"></input>
+    </form>
+  </section>
+</body>
+</html>

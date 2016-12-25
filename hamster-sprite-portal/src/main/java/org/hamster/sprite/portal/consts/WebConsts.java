@@ -29,10 +29,16 @@ public final class WebConsts {
     public static final String W = "/ws";
     
     public static final String P_PUBLIC = P + "/public";
+    
     public static final String W_PUBLIC = W + "/public";
+    
+    public static final String P_USER = P + "/user";
+    public static final String P_USER_LOGIN = "/login";
+    public static final String P_USER_LOGOUT = "logout";
+    
 
     public static final String P_PASSWORD = P + "/password";
-
+    
     public static final String W_PASSWORD = W + "/password";
     public static final String W_PASSWORD_APP_CREATE = "/application/create";
     public static final String W_PASSWORD_APP_LIST = "/application/list";
