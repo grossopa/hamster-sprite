@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.hamster.core.web.spring.boot.AbstractApplication;
+import org.hamster.sprite.portal.consts.SecurityConsts;
 import org.hamster.sprite.portal.security.UsernamePasswordAuthenticationProvider;
 import org.hamster.sprite.service.user.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,6 +104,8 @@ public class Application extends AbstractApplication {
             .authorizeRequests()
                 .regexMatchers("/page/public/.*")
                     .permitAll()
+                .regexMatchers("/page/user/login")
+                    .permitAll()
                 .regexMatchers("/.*")
                     .hasAuthority("ROLE_USER")
                 .and()
@@ -112,9 +115,14 @@ public class Application extends AbstractApplication {
             .requestCache()
                 .requestCache(requestCache)
                 .and()
+            .authenticationProvider(authenticationProvider)
             .formLogin()
-                .loginPage("/page/public/login")
-                .failureUrl("/page/public/login?login_error=t" )
+                .loginPage("/page/user/login")
+                .loginProcessingUrl("/ws/user/login")
+                .failureUrl("/page/user/login?login_error=t")
+                .defaultSuccessUrl("/page/password")
+                .usernameParameter(SecurityConsts.PARAM_USERNAME)
+                .passwordParameter(SecurityConsts.PARAM_PASSWORD)
                 .and()
             .httpBasic();
             //@formatter:on

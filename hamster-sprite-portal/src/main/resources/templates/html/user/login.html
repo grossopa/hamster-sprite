@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html layout:decorator="/base/layout">
 <head>
@@ -5,7 +6,11 @@
 </head>
 <body>
   <section layout:fragment="mainContent">
-    abc
+    <form action="/portal/ws/user/login">
+        <input type="text" name="u"></input> 
+        <input type="password" name="p"></input>
+        <input type="submit"></input>
+    </form>
   </section>
 </body>
 </html>
