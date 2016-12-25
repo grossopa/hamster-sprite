@@ -35,11 +35,6 @@ public abstract class SpritePageController extends AbstractPageController {
         return objectMapper.writeValueAsString(WebConsts.toMap());
     }
 
-    @ModelAttribute("login")
-    public String login() {
-        return "login";
-    }
-
     /**
      * Default exception handler to handle all types of exceptions and return a uniformed exception page.
      * 

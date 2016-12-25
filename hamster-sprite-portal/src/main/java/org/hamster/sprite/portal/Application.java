@@ -30,7 +30,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -102,30 +101,29 @@ public class Application extends AbstractApplication {
             //@formatter:off
             http
             .authorizeRequests()
-                .regexMatchers("/calendar/.*")
-                    .hasAuthority("ROLE_USER")
-                .regexMatchers("/.*")
+                .regexMatchers("/page/public/.*")
                     .permitAll()
+                .regexMatchers("/.*")
+                    .hasAuthority("ROLE_USER")
                 .and()
             .logout()
-                .logoutUrl("/security/j_spring_security_logout")
+                .logoutUrl("/page/user/logout")
                 .and()
             .requestCache()
                 .requestCache(requestCache)
                 .and()
             .formLogin()
-                .loginProcessingUrl("/security/j_spring_security_check")
-                .loginPage("/login")
-                .failureUrl("/login?login_error=t" )
+                .loginPage("/page/public/login")
+                .failureUrl("/page/public/login?login_error=t" )
                 .and()
             .httpBasic();
             //@formatter:on
         }
 
-        @Override
-        public void configure(WebSecurity web) throws Exception {
-            web.ignoring().antMatchers("/resources/**");
-        }
+//        @Override
+//        public void configure(WebSecurity web) throws Exception {
+//            web.ignoring().antMatchers("/resources/**");
+//        }
 
         @Override
         public void configure(AuthenticationManagerBuilder auth) throws Exception {

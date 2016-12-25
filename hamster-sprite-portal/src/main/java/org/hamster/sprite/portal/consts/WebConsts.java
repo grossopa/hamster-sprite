@@ -32,6 +32,8 @@ public final class WebConsts {
     public static final String W_PUBLIC = W + "/public";
 
     public static final String P_PASSWORD = P + "/password";
+    
+    public static final String P_PUBLIC_LOGIN = P_PUBLIC + "/login";
 
     public static final String W_PASSWORD = W + "/password";
     public static final String W_PASSWORD_APP_CREATE = "/application/create";
