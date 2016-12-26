@@ -4,7 +4,6 @@
 package org.hamster.sprite.service.user;
 
 import org.hamster.sprite.dao.entity.UserEntity;
-import org.hamster.sprite.dao.entity.UserLoginEntity;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
@@ -27,5 +26,5 @@ public interface UserLoginService {
      * @param password
      * @return
      */
-    UserLoginEntity userLogin(String username, String password);
+    void userLogin(String username, String password);
 }

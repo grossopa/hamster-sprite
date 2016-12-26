@@ -31,11 +31,11 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Autowired
     @Setter
     private UserRepository userRepository;
-    
+
     @Autowired
     @Setter
     private UserTokenService userTokenService;
-    
+
     @Autowired
     @Setter
     private UserPasswordEncoder userPasswordEncoder;
@@ -57,20 +57,15 @@ public class UserLoginServiceImpl implements UserLoginService {
      */
     @Override
     @Transactional(readOnly = false)
-    public UserLoginEntity userLogin(String userId, String password) {
+    public void userLogin(String userId, String password) {
         UserEntity user = findUser(userId);
         if (user == null) {
             throw Exceptions.USRC001.create(null, userId);
         }
-        
+
         if (!userPasswordEncoder.matches(password, user.getPassword())) {
             throw Exceptions.USRC002.create(null);
         }
-
-        UserLoginEntity loginEntity = createUserLoginEntity();
-        user.getLogins().add(loginEntity);
-        userRepository.save(user);
-        return loginEntity;
     }
 
     /**
@@ -84,7 +79,5 @@ public class UserLoginServiceImpl implements UserLoginService {
         entity.setLoginToken(userTokenService.generateToken());
         return entity;
     }
-    
-    
 
 }

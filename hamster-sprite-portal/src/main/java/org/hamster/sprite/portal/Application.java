@@ -30,8 +30,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -89,11 +87,6 @@ public class Application extends AbstractApplication {
 
         @Autowired
         private RequestCache requestCache;
-
-//        @Autowired
-//        public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//            auth.authenticationProvider(authenticationProvider).userDetailsService(userService);
-//        }
 
         public AuthenticationSuccessHandler httpAuthenticationSuccessHandler() {
             return new DefaultAuthenticationSuccessHandler();
@@ -165,7 +158,7 @@ public class Application extends AbstractApplication {
             @Override
             public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
                     throws IOException, ServletException {
-                log.info("Hit Failure");
+                log.info("Hit Failure {0}", exception);
             }
 
         }

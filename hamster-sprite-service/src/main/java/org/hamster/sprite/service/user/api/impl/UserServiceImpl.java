@@ -6,10 +6,8 @@ package org.hamster.sprite.service.user.api.impl;
 import java.util.Collection;
 
 import org.hamster.sprite.dao.entity.UserEntity;
-import org.hamster.sprite.dao.entity.UserLoginEntity;
 import org.hamster.sprite.service.user.UserLoginService;
 import org.hamster.sprite.service.user.api.UserService;
-import org.hamster.sprite.service.user.dto.LoginTokenDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +16,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.hamster.sprite.api.exception.Exceptions;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
@@ -40,15 +36,8 @@ public class UserServiceImpl implements UserService {
      * @see org.hamster.sprite.service.user.api.UserService#userLogin(java.lang.String)
      */
     @Override
-    public LoginTokenDto userLogin(String userId, String password) {
-        UserEntity user = userLoginService.findUser(userId);
-        if (user == null) {
-            throw Exceptions.USRC001.create(null, userId);
-        }
-
-        UserLoginEntity userLoginEntity = userLoginService.userLogin(userId, password);
-        return LoginTokenDto.newInstance(userId, userLoginEntity.getLoginToken(), userLoginEntity.getLoginTime().getTime(),
-                userLoginEntity.getExpiresInMin());
+    public void userLogin(String userId, String password) {
+        userLoginService.userLogin(userId, password);
     }
 
     /*
@@ -58,12 +47,14 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-        UserEntity user = userLoginService.findUser(username);
-        log.error("234345");
+        final UserEntity user = userLoginService.findUser(username);
+        
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
         return new UserDetails() {
+
+            private static final long serialVersionUID = 1191249566326883313L;
 
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -73,8 +64,7 @@ public class UserServiceImpl implements UserService {
 
             @Override
             public String getPassword() {
-                // TODO Auto-generated method stub
-                return null;
+                return user.getPassword();
             }
 
             @Override
@@ -84,25 +74,21 @@ public class UserServiceImpl implements UserService {
 
             @Override
             public boolean isAccountNonExpired() {
-                // TODO Auto-generated method stub
-                return false;
+                return true;
             }
 
             @Override
             public boolean isAccountNonLocked() {
-                // TODO Auto-generated method stub
-                return false;
+                return true;
             }
 
             @Override
             public boolean isCredentialsNonExpired() {
-                // TODO Auto-generated method stub
-                return false;
+                return true;
             }
 
             @Override
             public boolean isEnabled() {
-                // TODO Auto-generated method stub
                 return true;
             }
 

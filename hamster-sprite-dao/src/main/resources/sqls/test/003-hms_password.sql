@@ -1,4 +1,4 @@
--- table hms_password rows count 5, Date 12/24/16 2:56 PM
+-- table hms_password rows count 5, Date 12/26/16 10:14 PM
 INSERT INTO hms_password (id, account_id, current, password, salt, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (1, 1, TRUE, '7k8bR+AYGTwyDbQTyAYdYBol5PF3PPBUQo1LxqhpLCM=', 'AAAAAAAAAAAA', 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');
 INSERT INTO hms_password (id, account_id, current, password, salt, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (2, 1, FALSE, '7k8bR+AYGTwyDbQTyAYdYBol5PF3PPBUQo1LxqhpLCM=', 'AAAAAAAAAAAA', 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');
 INSERT INTO hms_password (id, account_id, current, password, salt, _created_by, _created_on, _updated_by, _updated_on, _status) VALUES (3, 2, TRUE, '7k8bR+AYGTwyDbQTyAYdYBol5PF3PPBUQo1LxqhpLCM=', 'AAAAAAAAAAAA', 'SYSTEM', '2016-07-08 15:00:00', 'SYSTEM', '2016-07-08 15:00:00', 'ACTIVE');

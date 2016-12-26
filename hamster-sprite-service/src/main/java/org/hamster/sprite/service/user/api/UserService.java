@@ -3,7 +3,6 @@
  */
 package org.hamster.sprite.service.user.api;
 
-import org.hamster.sprite.service.user.dto.LoginTokenDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -20,8 +19,6 @@ public interface UserService extends UserDetailsService {
      * @param guestDetails
      * @return
      */
-    LoginTokenDto userLogin(String userId, String password);
-    
-    
+    void userLogin(String userId, String password);
 
 }
