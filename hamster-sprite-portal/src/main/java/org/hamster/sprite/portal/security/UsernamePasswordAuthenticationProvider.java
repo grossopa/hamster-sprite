@@ -6,7 +6,7 @@ package org.hamster.sprite.portal.security;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hamster.sprite.service.user.api.UserService;
+import org.hamster.sprite.service.user.api.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,6 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        log.info("Hit");
         String userId = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
 
@@ -46,7 +45,7 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
             List<GrantedAuthority> grantedRoles = new ArrayList<>();
             return new UsernamePasswordAuthenticationToken(userId, password, grantedRoles);
         } catch (Exception e) {
-            log.error("Login failed");
+            log.debug("Login failed", e);
             throw new AuthenticationCredentialsNotFoundException("Username or password was not accepted", e);
         }
     }

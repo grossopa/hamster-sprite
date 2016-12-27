@@ -22,6 +22,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * 
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */

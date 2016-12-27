@@ -1,8 +1,9 @@
 /**
  * 
  */
-package org.hamster.sprite.service.user.api;
+package org.hamster.sprite.service.user.api.service;
 
+import org.hamster.sprite.service.user.api.model.AppUser;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -20,5 +21,11 @@ public interface UserService extends UserDetailsService {
      * @return
      */
     void userLogin(String userId, String password);
+    
+    /**
+     * 
+     * @return current logged in user
+     */
+    AppUser getCurrentUser();
 
 }

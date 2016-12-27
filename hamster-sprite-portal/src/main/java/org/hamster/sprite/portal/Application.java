@@ -13,7 +13,8 @@ import javax.sql.DataSource;
 
 import org.hamster.core.web.spring.boot.AbstractApplication;
 import org.hamster.sprite.portal.consts.SecurityConsts;
-import org.hamster.sprite.service.user.api.UserService;
+import org.hamster.sprite.portal.consts.WebConsts;
+import org.hamster.sprite.service.user.api.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 
@@ -93,7 +96,7 @@ public class Application extends AbstractApplication {
         }
 
         public AuthenticationFailureHandler httpAuthenticationFailureHandler() {
-            return new DefaultAUthenticationFailureHandler();
+            return new DefaultAuthenticationFailureHandler();
         }
 
         @Override
@@ -109,55 +112,42 @@ public class Application extends AbstractApplication {
                 .regexMatchers("/.*")
                     .authenticated()
                 .and()
-            .logout()
-                .logoutUrl("/page/user/logout")
-                .and()
             .requestCache()
                 .requestCache(requestCache)
                 .and()
+            .logout()
+                .logoutUrl("/ws/user/logout")
+                .and()
             .formLogin()
-                .loginPage("/page/user/login")
+                .loginPage(WebConsts.getUrl("P_USER_LOGIN"))
                 .loginProcessingUrl("/ws/user/login")
                 .failureUrl("/page/user/login?login_error=t")
-                .defaultSuccessUrl("/page/password")
+                .defaultSuccessUrl(WebConsts.getUrl("P_PASSWORD"), true)
                 .usernameParameter(SecurityConsts.PARAM_USERNAME)
                 .passwordParameter(SecurityConsts.PARAM_PASSWORD)
                 .successHandler(new DefaultAuthenticationSuccessHandler())
-                .failureHandler(new DefaultAUthenticationFailureHandler())
+                .failureHandler(new DefaultAuthenticationFailureHandler())
                 .permitAll()
                 .and()
             .httpBasic();
             //@formatter:on
         }
 
-        // @Override
-        // public void configure(WebSecurity web) throws Exception {
-        // web.ignoring().antMatchers("/resources/**");
-        // }
-
-        // @Override
-        // public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // auth
-        // .authenticationProvider(authenticationProvider)
-        // .userDetailsService(userService);
-        // }
-        //
-
-        public static class DefaultAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+        public static class DefaultAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
             @Override
-            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-                    throws IOException, ServletException {
+            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+                super.onAuthenticationSuccess(request, response, authentication);
                 log.info("Hit Success");
             }
 
         }
 
-        public static class DefaultAUthenticationFailureHandler implements AuthenticationFailureHandler {
+        public static class DefaultAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
             @Override
-            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
-                    throws IOException, ServletException {
+            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+                super.onAuthenticationFailure(request, response, exception);
                 log.info("Hit Failure {0}", exception);
             }
 

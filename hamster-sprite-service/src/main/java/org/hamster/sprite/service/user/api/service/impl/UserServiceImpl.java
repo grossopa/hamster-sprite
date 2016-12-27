@@ -1,21 +1,23 @@
 /**
  * 
  */
-package org.hamster.sprite.service.user.api.impl;
-
-import java.util.Collection;
+package org.hamster.sprite.service.user.api.service.impl;
 
 import org.hamster.sprite.dao.entity.UserEntity;
 import org.hamster.sprite.service.user.UserLoginService;
-import org.hamster.sprite.service.user.api.UserService;
+import org.hamster.sprite.service.user.api.model.AppAuthority;
+import org.hamster.sprite.service.user.api.model.AppUser;
+import org.hamster.sprite.service.user.api.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.google.common.collect.Lists;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
@@ -48,51 +50,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
         final UserEntity user = userLoginService.findUser(username);
-        
         if (user == null) {
+            log.debug("Cannot find user {}", username);
             throw new UsernameNotFoundException(username);
         }
-        return new UserDetails() {
+        return new AppUser(user.getUsername(), user.getPassword(), Lists.newArrayList(AppAuthority.ROLE_USER));
+    }
 
-            private static final long serialVersionUID = 1191249566326883313L;
-
-            @Override
-            public Collection<? extends GrantedAuthority> getAuthorities() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public String getPassword() {
-                return user.getPassword();
-            }
-
-            @Override
-            public String getUsername() {
-                return username;
-            }
-
-            @Override
-            public boolean isAccountNonExpired() {
-                return true;
-            }
-
-            @Override
-            public boolean isAccountNonLocked() {
-                return true;
-            }
-
-            @Override
-            public boolean isCredentialsNonExpired() {
-                return true;
-            }
-
-            @Override
-            public boolean isEnabled() {
-                return true;
-            }
-
-        };
+    /**
+     * @return Spring Security managed user
+     */
+    @Override
+    public AppUser getCurrentUser() {
+        return (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 }

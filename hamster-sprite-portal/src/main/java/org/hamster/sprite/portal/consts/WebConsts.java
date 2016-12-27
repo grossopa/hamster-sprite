@@ -47,6 +47,16 @@ public final class WebConsts {
     public static final String W_PASSWORD_PASSWORD_CREATE = "/password/create";
 
     private static Map<String, String> URLS;
+    
+    /**
+     * get URL by key name
+     * 
+     * @param key
+     * @return the 
+     */
+    public static String getUrl(String key) {
+        return toMap().get(key);
+    }
 
     public static Map<String, String> toMap() {
         if (URLS == null) {

@@ -3,11 +3,7 @@
  */
 package org.hamster.sprite.service.user.impl;
 
-import java.util.Date;
-
-import org.hamster.core.api.consts.StatusType;
 import org.hamster.sprite.dao.entity.UserEntity;
-import org.hamster.sprite.dao.entity.UserLoginEntity;
 import org.hamster.sprite.dao.repository.UserRepository;
 import org.hamster.sprite.service.user.UserLoginService;
 import org.hamster.sprite.service.user.UserPasswordEncoder;
@@ -66,18 +62,6 @@ public class UserLoginServiceImpl implements UserLoginService {
         if (!userPasswordEncoder.matches(password, user.getPassword())) {
             throw Exceptions.USRC002.create(null);
         }
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private UserLoginEntity createUserLoginEntity() {
-        UserLoginEntity entity = new UserLoginEntity();
-        entity.setLoginTime(new Date());
-        entity.setStatus(StatusType.ACTIVE);
-        entity.setLoginToken(userTokenService.generateToken());
-        return entity;
     }
 
 }
