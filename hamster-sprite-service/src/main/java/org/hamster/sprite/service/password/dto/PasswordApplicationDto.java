@@ -36,4 +36,9 @@ public class PasswordApplicationDto implements ManageableIfc<Long>, OrderIfc<Lon
     private String name;
 
     private String url;
+    
+    /**
+     * total on boarded account number 
+     */
+    private Integer onboardedAccountNumber;
 }

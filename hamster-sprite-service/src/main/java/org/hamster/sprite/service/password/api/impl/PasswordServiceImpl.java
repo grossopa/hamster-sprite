@@ -60,7 +60,8 @@ public class PasswordServiceImpl implements PasswordService {
     /*
      * (non-Javadoc)
      * 
-     * @see org.hamster.sprite.service.password.api.PasswordService#createApplication(java.lang.String, java.lang.String)
+     * @see org.hamster.sprite.service.password.api.PasswordService#createApplication(java.lang.String,
+     * java.lang.String)
      */
     @Override
     public Long createApplication(String name, String url) {
@@ -91,7 +92,7 @@ public class PasswordServiceImpl implements PasswordService {
         return new PasswordAccountDtoMapper().mapList(application.getAccounts());
     }
 
-    /* 
+    /*
      * (non-Javadoc)
      *
      * @see org.hamster.sprite.service.password.api.PasswordService#createPassword(java.lang.Long, int)

@@ -48,6 +48,13 @@ public class PasswordAccountEntity extends ManageableEntity {
     @Column(name = "application_id", insertable = false, updatable = false)
     private Long applicationId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
+
     public static PasswordAccountEntity newInstance(String accountName, PasswordApplicationEntity application) {
         PasswordAccountEntity account = new PasswordAccountEntity();
         account.setAccountName(accountName);

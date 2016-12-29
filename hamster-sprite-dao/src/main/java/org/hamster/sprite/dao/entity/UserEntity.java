@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hamster.core.dao.entity.base.ManageableEntity;
-import org.hamster.sprite.core.util.UserUtil;
+import org.hamster.core.dao.util.EntityUtils;
 import org.hamster.sprite.dao.consts.TableConsts;
 import org.hibernate.envers.Audited;
 
@@ -43,7 +43,18 @@ public class UserEntity extends ManageableEntity {
     @JoinColumn(name = "user_id")
     private Set<UserLoginEntity> logins = Sets.newHashSet();
     
-    public String findSalt() {
-        return UserUtil.getSalt(getPassword());
+    /**
+     * Create an instance with minimal attributes required
+     * 
+     * @param username
+     * @param password
+     * @return
+     */
+    public static UserEntity newInstance(String username, String password) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(username);
+        userEntity.setPassword(password);
+        EntityUtils.updateModifyInfo(userEntity, "TEST");
+        return userEntity;
     }
 }

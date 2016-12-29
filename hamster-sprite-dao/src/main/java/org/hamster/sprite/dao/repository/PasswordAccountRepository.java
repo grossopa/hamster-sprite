@@ -3,7 +3,9 @@
  */
 package org.hamster.sprite.dao.repository;
 
+import org.hamster.sprite.dao.consts.TableConsts;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -24,5 +26,9 @@ public interface PasswordAccountRepository extends PagingAndSortingRepository<Pa
      * @return
      */
     PasswordAccountEntity findByApplicationIdAndAccountName(Long applicationId, String name);
+
+    @Query(value = "select account_name, count(account_name) "
+            + "from " + TableConsts.TABLE_PREFIX + "password_account where user_id = ? group by account_name", nativeQuery = true)
+    Object[] countAccountNumberGroupByAccountName(Long userId);
 
 }

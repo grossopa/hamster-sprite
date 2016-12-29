@@ -3,6 +3,8 @@
  */
 package org.hamster.sprite.service.password.impl;
 
+import java.util.Map;
+
 import org.hamster.core.dao.util.EntityUtils;
 import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
@@ -36,7 +38,7 @@ public class PasswordAccountServiceImpl implements PasswordAccountService {
      * @see org.hamster.sprite.service.password.PasswordAccountService#findAccountByName(java.lang.String, java.lang.Long)
      */
     @Override
-    public PasswordAccountEntity findAccount(Long applicationId, String accountName) {
+    public PasswordAccountEntity findAccount(Long userId, Long applicationId, String accountName) {
         return passwordAccountRepository.findByApplicationIdAndAccountName(applicationId, accountName);
     }
 
@@ -77,6 +79,14 @@ public class PasswordAccountServiceImpl implements PasswordAccountService {
             throw Exceptions.PWDC006.create(null, accountId);
         }
         return account;
+    }
+
+    /* (non-Javadoc)
+     * @see org.hamster.sprite.service.password.PasswordAccountService#findAccountNumberByApplicationIds(java.lang.Long, java.lang.Iterable)
+     */
+    @Override
+    public Map<Long, Integer> findAccountNumberByApplicationIds(Long userId, Iterable<Long> applicationIds) {
+        return null;
     }
 
 }
