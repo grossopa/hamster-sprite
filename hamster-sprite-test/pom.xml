@@ -11,6 +11,7 @@
     <dependency>
       <groupId>org.hamster</groupId>
       <artifactId>hamster-core-test</artifactId>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

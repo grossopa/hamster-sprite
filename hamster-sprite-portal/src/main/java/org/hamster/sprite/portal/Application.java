@@ -9,27 +9,21 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 import org.hamster.core.web.spring.boot.AbstractApplication;
+import org.hamster.sprite.dao.SpriteDaoConfiguration;
 import org.hamster.sprite.portal.consts.SecurityConsts;
 import org.hamster.sprite.portal.consts.WebConsts;
 import org.hamster.sprite.service.user.api.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -50,29 +44,21 @@ import org.springframework.security.web.savedrequest.RequestCache;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableAutoConfiguration
-@EntityScan("org.hamster.sprite.dao.entity")
-@EnableJpaRepositories("org.hamster.sprite.dao")
-@ComponentScan({ "org.hamster.sprite" })
+@ComponentScan("org.hamster.sprite")
 public class Application extends AbstractApplication {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         AbstractApplication.create(Application.class).run(args);
     }
-
-    @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "datasource.primary")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
-    }
-
+    
     @Bean(name = "requestCache")
-    public RequestCache getRequestCache() {
+    public RequestCache requestCache() {
         return new HttpSessionRequestCache();
+    }
+    
+    @Configuration
+    protected static class DaoConfiguration extends SpriteDaoConfiguration {
+        
     }
 
     @Configuration

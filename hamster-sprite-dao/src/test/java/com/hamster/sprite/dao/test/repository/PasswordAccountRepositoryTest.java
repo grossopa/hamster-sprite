@@ -24,17 +24,16 @@ public class PasswordAccountRepositoryTest extends AbstractDaoSpringTest {
     public void testLoad() {
         Assert.assertNotNull(accountRepository);
     }
-    
+
     @Test
     public void test() {
-        
-        
+
         Object[] result = accountRepository.countAccountNumberGroupByAccountName(1L);
         for (Object item : result) {
             Object[] arr = (Object[]) item;
             Asserts.assertEquals(2, arr.length);
             System.out.println(arr[0]);
-            System.out.println(arr[1]); 
+            System.out.println(arr[1]);
         }
     }
 }

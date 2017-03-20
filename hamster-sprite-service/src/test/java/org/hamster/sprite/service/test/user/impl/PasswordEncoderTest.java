@@ -3,7 +3,7 @@
  */
 package org.hamster.sprite.service.test.user.impl;
 
-import org.junit.Ignore;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -14,10 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class PasswordEncoderTest {
 
     @Test
-    @Ignore
     public void generatePassword() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode("123456");
-        System.out.println(encodedPassword);
+        Assert.assertNotNull(encodedPassword);
     }
 }

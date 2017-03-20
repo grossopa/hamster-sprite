@@ -26,7 +26,7 @@ import com.hamster.sprite.api.password.PasswordGenerationType;
 public class DefaultPasswordGenerationServiceImpl implements PasswordGenerationService {
 
     @Resource(name = "DefaultPasswordCharacterSupplier")
-    PasswordCharacterSupplier supplier;
+    private PasswordCharacterSupplier supplier;
 
     /*
      * (non-Javadoc)

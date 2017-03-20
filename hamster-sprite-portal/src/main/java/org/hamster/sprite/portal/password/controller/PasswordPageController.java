@@ -6,11 +6,9 @@ package org.hamster.sprite.portal.password.controller;
 import org.hamster.sprite.portal.consts.WebConsts;
 import org.hamster.sprite.portal.controller.SpritePageController;
 import org.hamster.sprite.service.password.api.PasswordService;
-import org.hamster.sprite.service.user.api.model.AppUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +35,7 @@ public class PasswordPageController extends SpritePageController {
     
     @GetMapping("/error")
     public String errorTest() {
+        log.error("exception occurred");
         throw new RuntimeException("NullPointerException dddd cccc dddd");
     }
 

@@ -4,11 +4,12 @@
 package org.hamster.sprite.service.test.password.service;
 
 import org.hamcrest.MatcherAssert;
+import org.hamster.sprite.service.password.impl.DefaultPasswordCharacterSupplierImpl;
 import org.hamster.sprite.service.password.impl.DefaultPasswordGenerationServiceImpl;
 import org.hamster.sprite.service.test.base.AbstractServiceSpringTest;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hamster.sprite.api.password.PasswordGenerationType;
 import com.jcabi.matchers.RegexMatchers;
@@ -19,14 +20,20 @@ import com.jcabi.matchers.RegexMatchers;
  */
 public class DefaultPasswordGenerationServiceTest extends AbstractServiceSpringTest {
 
-    @Autowired
-    DefaultPasswordGenerationServiceImpl service;
+    DefaultPasswordGenerationServiceImpl service = new DefaultPasswordGenerationServiceImpl();
+
+    @Before
+    public void before() {
+        service.setSupplier(new DefaultPasswordCharacterSupplierImpl());
+    }
 
     @Test
     public void testGeneratePassword() {
 
-        String result = service.generatePassword(10, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
-        String result2 = service.generatePassword(10, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
+        String result = service.generatePassword(10,
+                PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
+        String result2 = service.generatePassword(10,
+                PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
 
         Assert.assertNotEquals(result, result2);
     }
@@ -36,10 +43,11 @@ public class DefaultPasswordGenerationServiceTest extends AbstractServiceSpringT
         String numberResult = service.generatePassword(12, PasswordGenerationType.NUMBER);
         MatcherAssert.assertThat(numberResult, RegexMatchers.matchesPattern("^[0-9]{12}$"));
     }
-    
+
     @Test
     public void testString() {
-        String stringResult = service.generatePassword(24, PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
+        String stringResult = service.generatePassword(24,
+                PasswordGenerationType.LOWERCASE | PasswordGenerationType.UPPERCASE);
         MatcherAssert.assertThat(stringResult, RegexMatchers.matchesPattern("^[a-zA-Z]{24}$"));
     }
 }
