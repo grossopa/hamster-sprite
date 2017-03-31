@@ -34,7 +34,8 @@ public final class WebConsts {
     
     public static final String P_USER = P + "/user";
     public static final String P_USER_LOGIN = "/login";
-    public static final String P_USER_LOGOUT = "logout";
+    public static final String P_USER_LOGOUT = "/logout";
+    public static final String P_USER_HOME = "/home";
     
 
     public static final String P_PASSWORD = P + "/password";

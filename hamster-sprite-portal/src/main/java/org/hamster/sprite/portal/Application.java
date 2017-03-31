@@ -50,21 +50,26 @@ public class Application extends AbstractApplication {
     public static void main(String[] args) {
         AbstractApplication.create(Application.class).run(args);
     }
-    
+
     @Bean(name = "requestCache")
     public RequestCache requestCache() {
         return new HttpSessionRequestCache();
     }
-    
+
     @Configuration
-    protected static class DaoConfiguration extends SpriteDaoConfiguration {
-        
+    public static class DaoConfiguration extends SpriteDaoConfiguration {
+
+    }
+
+    @Configuration
+    public static class WebConfiguration extends SpriteWebConfiguration {
+
     }
 
     @Configuration
     @EnableWebSecurity
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-    protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
+    public static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
         private static final Logger log = LoggerFactory.getLogger(ApplicationSecurity.class);
 
@@ -108,7 +113,7 @@ public class Application extends AbstractApplication {
                 .loginPage(WebConsts.getUrl("P_USER_LOGIN"))
                 .loginProcessingUrl("/ws/user/login")
                 .failureUrl("/page/user/login?login_error=t")
-                .defaultSuccessUrl(WebConsts.getUrl("P_PASSWORD"), true)
+                .defaultSuccessUrl(WebConsts.getUrl("P_USER_HOME"), true)
                 .usernameParameter(SecurityConsts.PARAM_USERNAME)
                 .passwordParameter(SecurityConsts.PARAM_PASSWORD)
                 .successHandler(new DefaultAuthenticationSuccessHandler())
@@ -122,7 +127,8 @@ public class Application extends AbstractApplication {
         public static class DefaultAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
             @Override
-            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+                    Authentication authentication) throws IOException, ServletException {
                 super.onAuthenticationSuccess(request, response, authentication);
                 log.info("Hit Success");
             }
@@ -132,7 +138,8 @@ public class Application extends AbstractApplication {
         public static class DefaultAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
             @Override
-            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                    AuthenticationException exception) throws IOException, ServletException {
                 super.onAuthenticationFailure(request, response, exception);
                 log.info("Hit Failure {0}", exception);
             }
@@ -140,5 +147,4 @@ public class Application extends AbstractApplication {
         }
 
     }
-
 }

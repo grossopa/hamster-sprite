@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(WebConsts.P_USER)
-public class UserPageController extends SpritePageController {
+public class UserPageController extends AbstractSpritePageController {
 
     @GetMapping(WebConsts.P_USER_LOGIN)
     public String login() {
@@ -28,13 +28,19 @@ public class UserPageController extends SpritePageController {
     }
 
     @GetMapping(WebConsts.P_USER_LOGOUT)
-    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";
     }
+    
+    @GetMapping(WebConsts.P_USER_HOME)
+    public String home() {
+        return "user/home";
+    }
+    
 
     /*
      * (non-Javadoc)

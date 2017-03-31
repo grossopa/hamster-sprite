@@ -43,6 +43,7 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
         try {
             userService.userLogin(userId, password);
             List<GrantedAuthority> grantedRoles = new ArrayList<>();
+            log.info("User {} successfully logged in.", userId);
             return new UsernamePasswordAuthenticationToken(userId, password, grantedRoles);
         } catch (Exception e) {
             log.debug("Login failed", e);

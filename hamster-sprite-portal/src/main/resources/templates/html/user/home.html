@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html layout:decorator="/base/layout" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>User Login Home</title>
+</head>
+<body>
+  <section layout:fragment="mainContent">
+    <header>
+      Welcome User <span th:text="${user.username}" />
+    </header>
+  </section>
+</body>
+</html>

@@ -20,12 +20,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * 
+ * super class for all pages
  * 
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
  * @since 1.0
  */
-public abstract class SpritePageController extends AbstractPageController {
+public abstract class AbstractSpritePageController extends AbstractPageController {
 
     @Autowired
     private ObjectMapper objectMapper;
