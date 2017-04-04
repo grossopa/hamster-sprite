@@ -1,0 +1,15 @@
+<div th:fragment="layout-head">
+  <!-- css -->
+  <link rel="stylesheet" th:href="${hs_lib_home} + 'bootstrap/dist/css/bootstrap.css'" media="all" />
+
+  <!-- js -->
+  <script th:src="${hs_lib_home} + 'angular/angular.js'"></script>
+  <script th:src="${hs_lib_home} + 'requirejs/require.js'" data:main="${hs_js_home + hs_application + '/index'}"></script>
+
+  <script th:inline="javascript">
+  var CXT = {
+    contextPath : /*[[@{/}]]*/ '/',
+    web_api     : /*[[${web_api}]]*/ '[]',
+  }; 
+  </script>
+</div> 

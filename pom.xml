@@ -54,7 +54,7 @@
       </dependency>
       <dependency>
         <groupId>org.hamster.sprite</groupId>
-        <artifactId>hamster-sprite-portal</artifactId>
+        <artifactId>hamster-sprite-web</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -80,16 +80,6 @@
 
     </dependencies>
   </dependencyManagement>
-
-  <!-- common dependencies -->
-  <dependencies>
-
-  </dependencies>
-
-  <!-- <build> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>exec-maven-plugin</artifactId> <executions> <execution> <goals> <goal>java</goal> </goals> </execution> </executions> 
-    <configuration> <executable>java</executable> <workingDirectory>hamster-sprite-dao</workingDirectory> <mainClass>org.hamster.sprite.dao.functional.GenerateSqls.Main</mainClass> </configuration> </plugin> 
-    </plugins> </build> -->
-
 
   <modules>
     <module>hamster-sprite-dao</module>

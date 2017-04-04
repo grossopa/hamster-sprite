@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html layout:decorator="/base/layout">
+<head>
+<title>Password Home</title>
+</head>
+<body>
+  <section layout:fragment="mainContent">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Accounts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="application: ${passwordApplications}">
+          <td th:text="${application.name}"></td>
+          <td th:text="${application.url}"></td>
+          <td><input type="button" ></input></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>

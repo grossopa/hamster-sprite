@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oops..</title>
+</head>
+<body>
+  <section layout:fragment="mainContent">
+    <h2>Oops, we got a problem here.</h2>
+    <a id="hs_err_code" th:text="${exceptionDto.code}"></a>
+    <div id="hs_err_message" th:text="${exceptionDto.message}"></div>
+    <details id="hs_err_details">
+      <textarea id="hs_err_details_text" th:text="${exceptionDetails}" />
+    </details>
+  </section>
+</body>
+</html>
