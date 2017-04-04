@@ -1,0 +1,13 @@
+<section th:fragment="layout-header">
+  <header>
+    <div>
+      <h1>
+        Hamster Sprite (<span th:text="(${environment})">ENVIRONMENT</span>)
+      </h1>
+      <h4>A Toolbox</h4>
+    </div>
+    <div th:if="${environment == 'UNKNOWN'}">
+      <a th:href="@{/test/h2-console}" target="_blank">H2 Web Console</a>
+    </div>
+  </header>
+</section>

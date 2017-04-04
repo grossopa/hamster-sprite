@@ -27,6 +27,11 @@
       <artifactId>hamster-sprite-service</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.hamster.sprite</groupId>
+      <artifactId>hamster-sprite-web-front</artifactId>
+    </dependency>
+
     <!-- test -->
     <dependency>
       <groupId>org.hamster.sprite</groupId>

@@ -11,7 +11,8 @@ hs_js_home=@{/static/js/}
 
 </head>
 <body>
-  <header layout:fragment="header"></header>
+  <section th:replace="/base/header :: layout-header" th:remove="tag"></section>
   <section layout:fragment="mainContent"></section>
+  <section th:replace="/base/footer :: layout-footer" th:remove="tag"></section>
 </body>
 </html>

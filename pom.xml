@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.hamster</groupId>
@@ -54,6 +55,11 @@
       </dependency>
       <dependency>
         <groupId>org.hamster.sprite</groupId>
+        <artifactId>hamster-sprite-web-front</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamster.sprite</groupId>
         <artifactId>hamster-sprite-web</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -63,6 +69,7 @@
         <version>${project.version}</version>
         <scope>test</scope>
       </dependency>
+
 
       <dependency>
         <groupId>org.hamster</groupId>
@@ -86,7 +93,8 @@
     <module>hamster-sprite-core</module>
     <module>hamster-sprite-test</module>
     <module>hamster-sprite-service</module>
-    <module>hamster-sprite-portal</module>
+    <module>hamster-sprite-web</module>
     <module>hamster-sprite-api</module>
+    <module>hamster-sprite-web-front</module>
   </modules>
 </project>

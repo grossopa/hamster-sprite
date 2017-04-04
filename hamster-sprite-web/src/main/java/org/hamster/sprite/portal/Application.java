@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 import org.hamster.core.dao.repository.DefaultTokenRepository;
 import org.hamster.core.web.spring.boot.AbstractApplication;
@@ -34,8 +33,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 
@@ -53,19 +50,9 @@ public class Application extends AbstractApplication {
         AbstractApplication.create(Application.class).run(args);
     }
 
-    @Autowired
-    private DataSource dataSource;
-
     @Bean(name = "requestCache")
     public RequestCache requestCache() {
         return new HttpSessionRequestCache();
-    }
-
-    @Bean
-    public PersistentTokenRepository persistentTokenRepository() {
-        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-        db.setDataSource(dataSource);
-        return db;
     }
 
     @Configuration
@@ -103,9 +90,7 @@ public class Application extends AbstractApplication {
             http
             .userDetailsService(userService)
             .authorizeRequests()
-                .antMatchers("/page/**")
-                    .authenticated()
-                .antMatchers("/ws/**")
+                .antMatchers("/page/**", "/ws/**")
                     .authenticated()
                 .antMatchers("/page/public/**", "/static/**", "/test/**")
                     .permitAll()
