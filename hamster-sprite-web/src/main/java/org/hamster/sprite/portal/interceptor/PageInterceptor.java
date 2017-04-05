@@ -35,13 +35,12 @@ public class PageInterceptor extends AbstractPageInterceptor {
     /*
      * (non-Javadoc)
      * 
-     * @see org.hamster.core.web.spring.interceptor.AbstractWebInterceptor#
-     * getUserName()
+     * @see org.hamster.core.web.spring.interceptor.AbstractWebInterceptor# getUserName()
      */
     @Override
     protected String getUserName() {
         Optional<AppUser> user = userService.getCurrentUser();
-        return user.isPresent() ? user.get().getUsername() : "";
+        return user.isPresent() ? user.get().getUsername() : "anonymous";
     }
 
     /**
@@ -59,6 +58,26 @@ public class PageInterceptor extends AbstractPageInterceptor {
             mav.addObject(WEB_API, WebConsts.toMap());
             mav.addObject(USER, user.isPresent() ? user.get() : null);
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.core.web.spring.interceptor.InterceptorPathPatterns#pathPatterns()
+     */
+    @Override
+    public Optional<String[]> pathPatterns() {
+        return Optional.of(new String[] { "/page/**" });
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.core.web.spring.interceptor.InterceptorPathPatterns#excludePathPatterns()
+     */
+    @Override
+    public Optional<String[]> excludePathPatterns() {
+        return Optional.empty();
     }
 
 }
