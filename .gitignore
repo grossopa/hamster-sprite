@@ -13,3 +13,5 @@ target
 .classpath
 .settings
 .metadata
+hamster-sprite-web-front/src/main/js/sprite/app.sublime-project
+hamster-sprite-web-front/src/main/js/sprite/app.sublime-workspace
