@@ -4,7 +4,7 @@ import Keyboard from 'material-ui/svg-icons/hardware/keyboard';
 
 class ModuleCardPassword extends ModuleCard {
   constructor() {
-    super(Keyboard, "Password");
+    super(Keyboard, 'Password', 'password');
   }
 }
 

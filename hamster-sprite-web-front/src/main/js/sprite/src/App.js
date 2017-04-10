@@ -39,8 +39,8 @@ class MainRouter extends Component {
   render() {
     return (<BrowserRouter>
       <App>
-        <Route path="/" component={Home} />
-        <Route path="password" component={Password} />
+        <Route exact={true} path="/" component={Home} />
+        <Route path="/password" component={Password} />
       </App>
     </BrowserRouter>);
   }

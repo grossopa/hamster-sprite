@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import {Card, CardText} from 'material-ui/Card';/*CardActions, CardHeader, CardMedia, CardTitle, */
+import { Link } from 'react-router-dom';
 
 class ModuleCard extends Component {
   iconClass : null;
   title : null;
+  link : null;
 
-  constructor(iconClass, title) {
+  constructor(iconClass, title, link) {
     super();
     this.iconClass = iconClass;
     this.title = title;
+    this.link = link;
   }
 
   render() {
@@ -21,7 +24,9 @@ class ModuleCard extends Component {
     };
 
     return (<Card>
-      <IconClass style={iconClassStyle} />
+      <Link to={this.link}>
+        <IconClass style={iconClassStyle} />
+      </Link>
       <CardText expandable={false}>
         {this.title}
       </CardText>
