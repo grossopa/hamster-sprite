@@ -17,12 +17,14 @@
   },
   "devDependencies": {
     "react-scripts": "0.9.5",
-    "redux-devtools": "^3.3.2"
+    "redux-devtools": "^3.3.2",
+    "rimraf": "^2.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "thymeleaf" : "react-scripts build && node ./build-scripts/thymeleaf.js",
     "eject": "react-scripts eject"
   }
 }

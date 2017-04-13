@@ -10,22 +10,42 @@
   <name>Hamster Sprite Web Front Part</name>
   <description>Contains Javascript, CSS and other necessary front codes</description>
 
+  <properties>
+    <node.home>src/main/js</node.home>
+  </properties>
+
   <build>
     <resources>
       <resource>
-        <directory>src/main/js</directory>
+        <directory>${node.home}/build</directory>
         <includes>
-          <include>sprite/build/**</include>
-          <include>sprite/public/**</include>
-          <include>sprite/src/**</include>
+          <include>**</include>
         </includes>
       </resource>
-      <resource>
-        <directory>src/main/sass</directory>
-      </resource>
-      <resource>
-        <directory>src/test/js</directory>
-      </resource>
     </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>npm</executable>
+          <workingDirectory>${node.home}</workingDirectory>
+          <arguments>
+            <argument>run</argument>
+            <argument>thymeleaf</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+      
+    </plugins>
   </build>
 </project>

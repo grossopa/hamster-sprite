@@ -22,4 +22,9 @@ public class HomeController {
     public String home() {
         return "forward:" + WebConsts.getUrl("P_USER_HOME");
     }
+    
+    @GetMapping("/react/**")
+    public String react() {
+        return "index";
+    }
 }
