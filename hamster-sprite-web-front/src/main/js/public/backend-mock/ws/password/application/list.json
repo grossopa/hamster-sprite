@@ -1,0 +1,29 @@
+{
+  "message": "",
+  "data": [
+    {
+      "createdBy": "SYSTEM",
+      "createdOn": 1473318000000,
+      "updatedBy": "SYSTEM",
+      "updatedOn": 1473318000000,
+      "status": "ACTIVE",
+      "id": 2,
+      "order": 2,
+      "name": "Hotmail",
+      "url": "https://mail.live.com",
+      "onboardedAccountNumber": null
+    },
+    {
+      "createdBy": "SYSTEM",
+      "createdOn": 1467961200000,
+      "updatedBy": "SYSTEM",
+      "updatedOn": 1467961200000,
+      "status": "ACTIVE",
+      "id": 1,
+      "order": 1,
+      "name": "Sina Weibo",
+      "url": "http://weibo.com/",
+      "onboardedAccountNumber": null
+    }
+  ]
+}

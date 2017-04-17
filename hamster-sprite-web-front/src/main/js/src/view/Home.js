@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 import {GridList/*, GridTile*/} from 'material-ui/GridList';
-import ModuleCardAccount from '../component/ModuleCardAccount.js';
-import ModuleCardPassword from '../component/ModuleCardPassword.js';
+import ModuleCardAccount from './component/ModuleCardAccount.js';
+import ModuleCardPassword from './component/ModuleCardPassword.js';
 
 class Home extends Component {
 

@@ -1,19 +1,23 @@
 {
-  "name": "sprite",
+  "name": "hamster-sprite",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
     "belle": "^3.0.1",
     "classnames": "^2.2.5",
-    "material-ui": "^0.17.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
+    "isomorphic-fetch": "^2.2.1",
+    "material-ui": "^0.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
     "react-responsive": "^1.2.7",
-    "react-router": "^4.0.0",
-    "react-router-dom": "^4.0.0",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
     "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5",
@@ -24,7 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "thymeleaf" : "react-scripts build && node ./build-scripts/thymeleaf.js",
+    "thymeleaf": "react-scripts build && node ./build-scripts/thymeleaf.js",
     "eject": "react-scripts eject"
   }
 }
