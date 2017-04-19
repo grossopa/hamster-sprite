@@ -1,21 +1,24 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { routerMiddleware, push } from 'react-router-redux'
+import { routerMiddleware, routerReducer } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
-import passwordReducers from '../password/reducers.js'
+import * as passwordReducers from '../password/reducers.js'
 
-export default function configureStore(preloadedState) {
-  const loggerMiddleware = createLogger();
+export default function configureStore(preloadedState, history) {
+  const loggerMiddleware = createLogger()
 
-  const rootReducer = combineReducers(
-    passwordReducers);
+  const routerMiddleware1 = routerMiddleware(history)
+
+  const rootReducer = combineReducers(Object.assign(
+    {routing: routerReducer}, passwordReducers)
+  );
 
   return createStore(
     rootReducer,
     preloadedState,
     applyMiddleware(
       thunkMiddleware,
-      routerMiddleware,
+      routerMiddleware1,
       loggerMiddleware
     )
   )

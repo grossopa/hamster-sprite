@@ -1,8 +1,9 @@
 // libs
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import { BrowserRouter, Route } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
+import { Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import configureStore from './config/configureStore.js'
@@ -15,7 +16,8 @@ import Layout from './view/layout/Layout.js';
 import Home from './view/Home.js';
 import Password from './password/view/Password.js';
 
-const store = configureStore();
+const history = createHistory();
+const store = configureStore({}, history);
 
 injectTapEventPlugin();
 
@@ -25,12 +27,12 @@ appConfig.initialize(window.CONFIG);
 class App extends Component {
   render() {
     return (<Provider store={store}>
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
       <Layout>
         <Route exact={true} path="/" component={Home} />
         <Route path="/password" component={Password} />
       </Layout>
-    </BrowserRouter>
+    </ConnectedRouter>
     </Provider>);
   }
 }

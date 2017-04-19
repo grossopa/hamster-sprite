@@ -1,5 +1,3 @@
-import Urls from './Urls.js';
-
 class AppConfig {
   user : null;
   env : null;

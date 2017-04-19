@@ -5,13 +5,8 @@ import { fetchApplications } from '../actions';
 
 
 class Password extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { dispatch } = this.props;
-    console.log('dispatch fetchApplications' + fetchApplications);
     dispatch(fetchApplications());
   }
 
@@ -21,7 +16,6 @@ class Password extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   const {
     isFetching,
     items: applications
