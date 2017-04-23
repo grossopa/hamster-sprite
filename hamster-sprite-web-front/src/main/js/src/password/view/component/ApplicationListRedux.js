@@ -1,10 +1,9 @@
 import { connect } from 'react-redux'
 import ApplicationList from './ApplicationList.js'
 
-import { fetchApplications } from '../../actions.js'
+import { fetchApplications, navigateApplication } from '../../actions.js'
 
 const mapStateToProps = (state, ownProps) => {
-
   return {
     applications : state.applications.applications
   }
@@ -12,8 +11,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onComponentDidMountHandler :  () => {
-      fetchApplications()
+    onComponentDidMountHandler : () => {
+      dispatch(fetchApplications())
+    },
+    onRowClickHandler : (application, rowNumber) => {
+      dispatch(navigateApplication(application.id))
     }
   }
 }

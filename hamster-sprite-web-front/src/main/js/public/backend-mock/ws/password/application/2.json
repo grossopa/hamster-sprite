@@ -1,0 +1,16 @@
+{
+  "message": "",
+  "data":
+    {
+      "createdBy": "SYSTEM",
+      "createdOn": 1467961200000,
+      "updatedBy": "SYSTEM",
+      "updatedOn": 1467961200000,
+      "status": "ACTIVE",
+      "id": 1,
+      "order": 1,
+      "name": "Sina Weibo",
+      "url": "http://weibo.com/",
+      "onboardedAccountNumber": null
+    }
+}

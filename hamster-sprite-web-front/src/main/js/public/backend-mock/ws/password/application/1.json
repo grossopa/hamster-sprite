@@ -1,0 +1,15 @@
+{
+  "message": "",
+  "data": {
+      "createdBy": "SYSTEM",
+      "createdOn": 1473318000000,
+      "updatedBy": "SYSTEM",
+      "updatedOn": 1473318000000,
+      "status": "ACTIVE",
+      "id": 2,
+      "order": 2,
+      "name": "Hotmail",
+      "url": "https://mail.live.com",
+      "onboardedAccountNumber": null
+    }
+}

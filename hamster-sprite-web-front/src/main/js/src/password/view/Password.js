@@ -3,32 +3,20 @@ import { connect } from 'react-redux'
 
 import { fetchApplications } from '../actions';
 import ApplicationList from './component/ApplicationListRedux.js'
+import ApplicationDetails from './component/ApplicationDetailsRedux.js'
 
 
 class Password extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchApplications());
-  }
-
   render() {
-    return (<section><ApplicationList></ApplicationList></section>);
+    return (<section>
+        <ApplicationList></ApplicationList>
+        <ApplicationDetails></ApplicationDetails>
+      </section>);
   }
 }
 
 function mapStateToProps(state) {
-  const {
-    isFetching,
-    items: applications
-  } = {
-    isFetching: true,
-    items: []
-  }
-
-  return {
-    applications,
-    isFetching
-  }
+  return state
 }
 
 export default connect(mapStateToProps)(Password);
