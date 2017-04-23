@@ -1,4 +1,3 @@
-
 import ModuleCard from './ModuleCard.js';
 import Keyboard from 'material-ui/svg-icons/hardware/keyboard';
 

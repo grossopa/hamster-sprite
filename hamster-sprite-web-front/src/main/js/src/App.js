@@ -19,12 +19,15 @@ import Password from './password/view/Password.js';
 const history = createHistory();
 const store = configureStore({}, history);
 
+import * as Util from './util'
+
 injectTapEventPlugin();
 
 // initialize the configuration from window.CONFIG (could be set from backend)
 appConfig.initialize(window.CONFIG);
 
 class App extends Component {
+
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 
 import { fetchApplications } from '../actions';
+import ApplicationList from './component/ApplicationListRedux.js'
 
 
 class Password extends Component {
@@ -11,7 +12,7 @@ class Password extends Component {
   }
 
   render() {
-    return (<div>hello Password</div>);
+    return (<section><ApplicationList></ApplicationList></section>);
   }
 }
 

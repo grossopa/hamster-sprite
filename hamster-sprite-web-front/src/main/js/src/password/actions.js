@@ -6,14 +6,12 @@ import * as Urls from '../config/Urls.js';
 import * as Consts from './consts.js';
 
 export function requestApplications() {
-  console.log(Consts.PWD_REQUEST_APPLICATIONS);
   return {
     type : Consts.PWD_REQUEST_APPLICATIONS
   };
 }
 
 export function receiveApplications(json) {
-  console.log(Consts.PWD_RECEIVE_APPLICATIONS);
   return {
     type: Consts.PWD_RECEIVE_APPLICATIONS,
     applications: json.data
