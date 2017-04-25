@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch) => {
     onComponentDidMountHandler : () => {
       dispatch(fetchApplications())
     },
-    onRowClickHandler : (application, rowNumber) => {
-      dispatch(navigateApplication(application.id))
+    onRowClickHandler : (id) => {
+      dispatch(navigateApplication(id))
     }
   }
 }

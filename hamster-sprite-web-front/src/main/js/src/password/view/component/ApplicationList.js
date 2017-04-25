@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {List, ListItem } from 'material-ui/List'
+import Subheader from 'material-ui/Subheader'
+import Avatar from 'material-ui/Avatar'
+import ActionInfo from 'material-ui/svg-icons/action/info'
+import FileFolder from 'material-ui/svg-icons/file/folder'
 import Moment from 'react-moment'
 
 import appConfig from '../../../config/AppConfig.js'
@@ -10,33 +14,21 @@ class ApplicationList extends Component {
     this.props.onComponentDidMountHandler();
   }
 
-  render() { return (<Table selectable={false}
-    onCellClick={(rowNumber, columnId) => this.props.onRowClickHandler(this.props.applications[rowNumber], rowNumber)}>
-    <TableHeader
-      displaySelectAll={false}
-      adjustForCheckbox={false}>
-      <TableRow>
-        <TableHeaderColumn>Application</TableHeaderColumn>
-        <TableHeaderColumn>URL</TableHeaderColumn>
-        <TableHeaderColumn>Audit</TableHeaderColumn>
-      </TableRow>
-    </TableHeader>
-    <TableBody
-      displayRowCheckbox={false}>
+  render() {
+    var _this = this;
+    return (<List>
+      <Subheader inset={true}>Applications</Subheader>
       {this.props.applications && this.props.applications.map(function(item) {
-          return (<TableRow key={item.id} selected={item.selected} style={{cursor : 'pointer'}}>
-             <TableRowColumn>{item.name}</TableRowColumn>
-             <TableRowColumn>{item.url}</TableRowColumn>
-             <TableRowColumn>
-                <span>Last Updated by {item.updatedBy} on&nbsp;
-                  <Moment format={appConfig.dateTimeFormat}>{item.updatedOn}</Moment>
-                </span>
-             </TableRowColumn>
-           </TableRow>)
+          return (<ListItem key={item.id} style={{cursor : 'pointer'}}
+            leftAvatar={<Avatar icon={<FileFolder />} />}
+            rightIcon={<ActionInfo />}
+            primaryText={item.name}
+            secondaryText={item.url}
+            onTouchTap={() => _this.props.onRowClickHandler(item.id)} />)
         })
       }
-    </TableBody>
-  </Table>)}
+    </List>)
+  }
 }
 
 export default ApplicationList
