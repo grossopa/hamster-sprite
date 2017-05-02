@@ -9,8 +9,10 @@ import org.hamster.core.dao.util.EntityUtils;
 import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
+import org.hamster.sprite.dao.entity.PasswordEntity;
 import org.hamster.sprite.dao.repository.PasswordAccountRepository;
 import org.hamster.sprite.dao.repository.PasswordApplicationRepository;
+import org.hamster.sprite.dao.repository.PasswordRepository;
 import org.hamster.sprite.service.password.PasswordAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,9 @@ import com.hamster.sprite.api.exception.Exceptions;
 @Service
 @Transactional(readOnly = true)
 public class PasswordAccountServiceImpl implements PasswordAccountService {
+    
+    @Autowired
+    private PasswordRepository passwordRepository;
 
     @Autowired
     private PasswordAccountRepository passwordAccountRepository;
@@ -81,12 +86,28 @@ public class PasswordAccountServiceImpl implements PasswordAccountService {
         return account;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see org.hamster.sprite.service.password.PasswordAccountService#findAccountNumberByApplicationIds(java.lang.Long, java.lang.Iterable)
      */
     @Override
     public Map<Long, Integer> findAccountNumberByApplicationIds(Long userId, Iterable<Long> applicationIds) {
         return null;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.sprite.service.password.PasswordAccountService#findCurrentPassword(java.lang.Long)
+     */
+    @Override
+    public PasswordEntity findCurrentPassword(Long accountId) {
+        PasswordEntity password = passwordRepository.findByAccountIdAndCurrent(accountId, true);
+        if (password == null) {
+            throw Exceptions.PWDC007.create(null, accountId);
+        }
+        return password;
     }
 
 }

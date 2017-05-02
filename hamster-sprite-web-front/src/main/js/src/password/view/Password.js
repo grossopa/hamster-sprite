@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { fetchApplications } from '../actions';
 import ApplicationList from './component/ApplicationListRedux.js'
 import ApplicationDetails from './component/ApplicationDetailsRedux.js'
 
 
 class Password extends Component {
   render() {
-    return (<section>
-        <ApplicationList></ApplicationList>
-        <ApplicationDetails></ApplicationDetails>
+    return (
+      <section>
+        <Route path="/password/applications" component={ApplicationList} exact={true}  />
+        <Route path="/password/application/:applicationId" component={ApplicationDetails} />
       </section>);
   }
 }

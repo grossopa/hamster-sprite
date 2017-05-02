@@ -17,6 +17,7 @@ import org.hamster.sprite.service.password.PasswordGenerationService;
 import org.hamster.sprite.service.password.api.PasswordService;
 import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
+import org.hamster.sprite.service.password.dto.PasswordRevealDto;
 import org.hamster.sprite.service.password.dto.mapper.PasswordAccountDtoMapper;
 import org.hamster.sprite.service.password.dto.mapper.PasswordApplicationDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +61,7 @@ public class PasswordServiceImpl implements PasswordService {
     /*
      * (non-Javadoc)
      * 
-     * @see org.hamster.sprite.service.password.api.PasswordService#createApplication(java.lang.String,
-     * java.lang.String)
+     * @see org.hamster.sprite.service.password.api.PasswordService#createApplication(java.lang.String, java.lang.String)
      */
     @Override
     public Long createApplication(String name, String url) {
@@ -104,6 +104,17 @@ public class PasswordServiceImpl implements PasswordService {
         PasswordEntity passwordEntity = PasswordEntity.newInstance(account, password);
         account.getPasswords().add(passwordEntity);
         passwordAccountRepository.save(account);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.hamster.sprite.service.password.api.PasswordService#revealPassword(java.lang.Long)
+     */
+    @Override
+    public PasswordRevealDto revealPassword(Long accountId) {
+        PasswordEntity password = passwordAccountService.findCurrentPassword(accountId);
+        return PasswordRevealDto.create(password.getPassword());
     }
 
 }

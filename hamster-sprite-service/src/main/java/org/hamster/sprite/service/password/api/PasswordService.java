@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
+import org.hamster.sprite.service.password.dto.PasswordRevealDto;
 
 /**
  * @author <a href="mailto:grossopaforever@gmail.com">Jack Yin</a>
@@ -54,4 +55,12 @@ public interface PasswordService {
      * @param length
      */
     void createPassword(Long accountId, int generationType, int length);
+    
+    /**
+     * Reveals the latest password of an account with audit tracked
+     * 
+     * @param accountId
+     * @return the plain password
+     */
+    PasswordRevealDto revealPassword(Long accountId);
 }

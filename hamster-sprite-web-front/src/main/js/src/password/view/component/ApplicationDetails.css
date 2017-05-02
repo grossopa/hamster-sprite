@@ -7,12 +7,3 @@
   background-color: #efefef;
   top : 200px;
 }
-
-.appdetailsani-appear {
-  opacity: 0.01;
-}
-
-.appdetailsani-appear.appdetailsani-active {
-  opacity: 1;
-
-}

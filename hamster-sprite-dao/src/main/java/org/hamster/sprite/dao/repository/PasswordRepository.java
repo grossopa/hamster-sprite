@@ -13,5 +13,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PasswordRepository extends PagingAndSortingRepository<PasswordEntity, Long> {
-    
+
+    /**
+     * 
+     * 
+     * @param accountId
+     * @param current
+     * @return passwordEntity or null
+     */
+    PasswordEntity findByAccountIdAndCurrent(Long accountId, Boolean current);
 }

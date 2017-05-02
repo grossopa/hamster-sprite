@@ -45,6 +45,11 @@ public enum Exceptions {
     PWDC006("PWDC006", "Could not find account with id {0}."),
     
     /**
+     * No passwords is associated with account {0}.
+     */
+    PWDC007("PWDC007", "No passwords is associated with account {0}."),
+    
+    /**
      * Could not find user {0}.
      */
     USRC001("USRC001", "Could not find user {0}."), 

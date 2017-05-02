@@ -46,6 +46,7 @@ public final class WebConsts {
     public static final String W_PASSWORD_ACC_CREATE = "/account/create";
     public static final String W_PASSWORD_ACC_LIST = "/account/list";
     public static final String W_PASSWORD_PASSWORD_CREATE = "/password/create";
+    public static final String W_PASSWORD_PASSWORD_REVEAL = "/password/reveal";
 
     private static Map<String, String> URLS;
     

@@ -6,6 +6,7 @@ package org.hamster.sprite.service.password;
 import java.util.Map;
 
 import org.hamster.sprite.dao.entity.PasswordAccountEntity;
+import org.hamster.sprite.dao.entity.PasswordEntity;
 
 /**
  * Service for password account management
@@ -50,5 +51,13 @@ public interface PasswordAccountService {
      * @return the created account
      */
     PasswordAccountEntity createAccount(Long applicationId, String accountName);
+    
+    /**
+     * Finds current password for account
+     * 
+     * @param accountId
+     * @return
+     */
+    PasswordEntity findCurrentPassword(Long accountId);
 
 }

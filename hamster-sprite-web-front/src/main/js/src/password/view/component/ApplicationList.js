@@ -4,9 +4,6 @@ import Subheader from 'material-ui/Subheader'
 import Avatar from 'material-ui/Avatar'
 import ActionInfo from 'material-ui/svg-icons/action/info'
 import FileFolder from 'material-ui/svg-icons/file/folder'
-import Moment from 'react-moment'
-
-import appConfig from '../../../config/AppConfig.js'
 
 class ApplicationList extends Component {
 
@@ -16,9 +13,10 @@ class ApplicationList extends Component {
 
   render() {
     var _this = this;
+    const applications = this.props.applications ? this.props.applications : [];
     return (<List>
       <Subheader inset={true}>Applications</Subheader>
-      {this.props.applications && this.props.applications.map(function(item) {
+      {applications.map((item) => {
           return (<ListItem key={item.id} style={{cursor : 'pointer'}}
             leftAvatar={<Avatar icon={<FileFolder />} />}
             rightIcon={<ActionInfo />}
