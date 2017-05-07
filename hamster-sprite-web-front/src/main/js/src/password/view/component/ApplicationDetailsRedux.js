@@ -4,15 +4,24 @@ import ApplicationDetails from './ApplicationDetails.js'
 import { fetchApplication, fetchAccounts, fetchPasswordReveal, openAccountDialog, closeAccountDialog } from '../../actions.js'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
+  const nextProps = {
     applicationId : state.routerReducer.applicationId,
     application : state.applications.application,
     accounts : state.applications.accounts,
-    plainPassword : state.applications.plainPassword,
     accountDialogOpen : state.applications.accountDialogOpen,
-    selectedAccountId : state.applications.selectedAccountId,
-    selectedAccountName : state.applications.selectedAccountName
   }
+
+  const {accountId, plainPassword} = state.applications
+  if (plainPassword) {
+    console.log(nextProps.accounts)
+    nextProps.accounts.forEach((account) => {
+      if (account.id == accountId) {
+        account.plainPassword = plainPassword
+      }
+    })
+  }
+
+  return nextProps
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
