@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.service.password.api.impl;
+package org.hamster.sprite.service.password.impl;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import org.hamster.sprite.dao.entity.PasswordAccountEntity;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.entity.PasswordEntity;
 import org.hamster.sprite.dao.repository.PasswordAccountRepository;
-import org.hamster.sprite.service.password.PasswordAccountService;
-import org.hamster.sprite.service.password.PasswordApplicationService;
-import org.hamster.sprite.service.password.PasswordGenerationService;
-import org.hamster.sprite.service.password.api.PasswordService;
+import org.hamster.sprite.service.password.PasswordService;
 import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
 import org.hamster.sprite.service.password.dto.PasswordRevealDto;
 import org.hamster.sprite.service.password.dto.mapper.PasswordAccountDtoMapper;
 import org.hamster.sprite.service.password.dto.mapper.PasswordApplicationDtoMapper;
+import org.hamster.sprite.service.password.ifc.PasswordAccountService;
+import org.hamster.sprite.service.password.ifc.PasswordApplicationService;
+import org.hamster.sprite.service.password.ifc.PasswordGenerationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

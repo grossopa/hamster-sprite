@@ -6,7 +6,7 @@ package org.hamster.sprite.service.password.impl;
 import static org.hamster.sprite.service.password.impl.DefaultPasswordCharacterSupplierImpl.Characters.*;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.hamster.sprite.service.password.PasswordCharacterSupplier;
+import org.hamster.sprite.service.password.ifc.PasswordCharacterSupplier;
 import org.springframework.stereotype.Component;
 
 import com.hamster.sprite.api.password.PasswordGenerationType;

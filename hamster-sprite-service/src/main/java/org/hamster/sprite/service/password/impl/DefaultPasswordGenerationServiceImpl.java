@@ -8,8 +8,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hamster.sprite.service.password.PasswordCharacterSupplier;
-import org.hamster.sprite.service.password.PasswordGenerationService;
+import org.hamster.sprite.service.password.ifc.PasswordCharacterSupplier;
+import org.hamster.sprite.service.password.ifc.PasswordGenerationService;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;

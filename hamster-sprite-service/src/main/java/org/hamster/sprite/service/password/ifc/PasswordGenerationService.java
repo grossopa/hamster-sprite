@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.service.password;
+package org.hamster.sprite.service.password.ifc;
 
 /**
  * generate random password

@@ -13,14 +13,14 @@ class LayoutHeader extends Component {
   handleTouchTap() {
     alert('onTouchTap triggered on the title component');
   }
- 
+
   render() {
     return (<AppBar
       title={<span>{this.props.title}</span>}
       onTitleTouchTap={(this.handleTouchTap)}
-      iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
-      iconElementRight={<FlatButton label="Save" />}
-      />);
+      iconElementLeft={this.props.iconElementLeft}
+      iconElementRight={this.props.iconElementRight}
+    />);
   }
 }
 

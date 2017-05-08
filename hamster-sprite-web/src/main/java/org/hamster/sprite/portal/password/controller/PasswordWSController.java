@@ -8,7 +8,7 @@ import java.util.List;
 import org.hamster.core.web.controller.dto.ResultDto;
 import org.hamster.core.web.controller.page.AbstractWSController;
 import org.hamster.sprite.portal.consts.WebConsts;
-import org.hamster.sprite.service.password.api.PasswordService;
+import org.hamster.sprite.service.password.PasswordService;
 import org.hamster.sprite.service.password.dto.PasswordAccountDto;
 import org.hamster.sprite.service.password.dto.PasswordApplicationDto;
 import org.hamster.sprite.service.password.dto.PasswordRevealDto;

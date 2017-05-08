@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.service.password;
+package org.hamster.sprite.service.password.ifc;
 
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 

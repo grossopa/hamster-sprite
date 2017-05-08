@@ -13,7 +13,7 @@ import org.hamster.sprite.dao.entity.PasswordEntity;
 import org.hamster.sprite.dao.repository.PasswordAccountRepository;
 import org.hamster.sprite.dao.repository.PasswordApplicationRepository;
 import org.hamster.sprite.dao.repository.PasswordRepository;
-import org.hamster.sprite.service.password.PasswordAccountService;
+import org.hamster.sprite.service.password.ifc.PasswordAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -10,10 +10,7 @@ const applicationsRouterHandler = (state, pathname) => {
 
 const applicationRouterHandler = (state, pathname, applicationId) => {
   return Object.assign(state, {
-    applicationId : applicationId,
-    selectedAccountId : null,
-    selectedAccountName : null,
-    plainPassword : null
+    applicationId : applicationId
   })
 }
 

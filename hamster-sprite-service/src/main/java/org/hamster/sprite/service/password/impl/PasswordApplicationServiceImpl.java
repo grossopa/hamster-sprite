@@ -8,7 +8,7 @@ import org.hamster.core.dao.util.EntityUtils;
 import org.hamster.sprite.core.util.UserUtil;
 import org.hamster.sprite.dao.entity.PasswordApplicationEntity;
 import org.hamster.sprite.dao.repository.PasswordApplicationRepository;
-import org.hamster.sprite.service.password.PasswordApplicationService;
+import org.hamster.sprite.service.password.ifc.PasswordApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;

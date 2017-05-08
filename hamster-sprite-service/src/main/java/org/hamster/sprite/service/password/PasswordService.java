@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.service.password.api;
+package org.hamster.sprite.service.password;
 
 import java.util.List;
 
