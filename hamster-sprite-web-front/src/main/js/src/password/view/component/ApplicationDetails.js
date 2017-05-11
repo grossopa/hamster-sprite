@@ -18,13 +18,13 @@ function wrapState(ComposedComponent) {
     componentWillMount() {
       this.setState({
         selectedIndex: this.props.defaultValue,
-      });
+      })
     }
 
     handleRequestChange = (event, index) => {
       this.setState({
         selectedIndex: index,
-      });
+      })
     }
 
     render() {

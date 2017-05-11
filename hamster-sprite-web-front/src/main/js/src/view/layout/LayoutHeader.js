@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
-import FlatButton from 'material-ui/FlatButton';
 
 /**
  * This example uses an [IconButton](/#/components/icon-button) on the left, has a clickable `title`

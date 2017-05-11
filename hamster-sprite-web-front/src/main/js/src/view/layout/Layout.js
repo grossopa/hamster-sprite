@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // layouts
-import LayoutHeader from './LayoutHeader.js';
+import LayoutHeader from './LayoutHeaderRedux.js';
 import LayoutHome from './LayoutHome.js';
 
 class Layout extends Component {

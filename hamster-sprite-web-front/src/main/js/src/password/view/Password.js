@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import { Route } from 'react-router-dom'
-import { connect } from 'react-redux'
+import FlatButton from 'material-ui/FlatButton'
 
 import ApplicationList from './component/ApplicationListRedux.js'
 import ApplicationDetails from './component/ApplicationDetailsRedux.js'
 
+export default class Password extends Component {
 
-class Password extends Component {
+  componentDidMount() {
+    this.props.updateAppBarHandler("Password Manager", null, <FlatButton label="Add" />)
+  }
+
   render() {
     return (
       <section>
@@ -15,9 +19,3 @@ class Password extends Component {
       </section>);
   }
 }
-
-function mapStateToProps(state) {
-  return state
-}
-
-export default connect(mapStateToProps)(Password);

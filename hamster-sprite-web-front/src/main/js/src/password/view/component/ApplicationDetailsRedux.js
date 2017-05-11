@@ -29,6 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onReloadHandler : (applicationId) => {
       dispatch(fetchApplication(applicationId))
       dispatch(fetchAccounts(applicationId))
+
     },
     onRevealPasswordHandler : (accountId) => {
       dispatch(fetchPasswordReveal(accountId))

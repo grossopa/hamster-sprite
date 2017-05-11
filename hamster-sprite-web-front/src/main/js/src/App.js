@@ -14,7 +14,7 @@ import appConfig from './config/AppConfig.js';
 // views
 import Layout from './view/layout/Layout.js';
 import Home from './view/layout/Home.js';
-import Password from './password/view/Password.js';
+import Password from './password/view/PasswordRedux.js';
 
 const history = createHistory();
 const store = configureStore({}, history);
