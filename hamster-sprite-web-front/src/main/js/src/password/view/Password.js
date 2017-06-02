@@ -8,7 +8,7 @@ import ApplicationDetails from './component/ApplicationDetailsRedux.js'
 export default class Password extends Component {
 
   componentDidMount() {
-    this.props.updateAppBarHandler("Password Manager", null, <FlatButton label="Add" />)
+    this.props.updateAppBarHandler("Password Manager", null, <FlatButton label="Add"  />)
   }
 
   render() {

@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import LayoutHeader from './LayoutHeader.js'
 
 const mapStateToProps = (state, ownProps) => {
+  if(state.appst) {}
   return {
     title : state.apps.title,
     iconElementLeft : state.apps.iconElementLeft,
