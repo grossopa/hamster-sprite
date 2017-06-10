@@ -59,8 +59,7 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
     /*
      * (non-Javadoc)
      * 
-     * @see org.springframework.security.authentication.AuthenticationProvider#
-     * supports(java.lang.Class)
+     * @see org.springframework.security.authentication.AuthenticationProvider# supports(java.lang.Class)
      */
     @Override
     public boolean supports(Class<?> authentication) {

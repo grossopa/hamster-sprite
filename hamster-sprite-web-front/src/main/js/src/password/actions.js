@@ -55,7 +55,6 @@ export const receiveApplication = (applicationId, json) => {
   }
 }
 
-
 export const fetchApplication = (applicationId) => {
   return dispatch => {
     dispatch(requestApplication(applicationId))

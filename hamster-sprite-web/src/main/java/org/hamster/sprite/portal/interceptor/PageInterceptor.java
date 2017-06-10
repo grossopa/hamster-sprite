@@ -6,7 +6,6 @@ package org.hamster.sprite.portal.interceptor;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.hamster.core.web.spring.interceptor.AbstractPageInterceptor;
 import org.hamster.sprite.portal.consts.WebConsts;
@@ -50,8 +49,9 @@ public class PageInterceptor extends AbstractPageInterceptor {
      * @param response
      * @param mav
      */
-    protected void buildModelAndView(HttpServletRequest request, HttpServletResponse response, ModelAndView mav) {
-        super.buildModelAndView(request, response, mav);
+    @Override
+    protected void buildModelAndView(HttpServletRequest request, ModelAndView mav) {
+        super.buildModelAndView(request, mav);
 
         Optional<AppUser> user = userService.getCurrentUser();
         if (mav != null) {

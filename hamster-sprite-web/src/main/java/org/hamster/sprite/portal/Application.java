@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hamster.core.dao.repository.DefaultTokenRepository;
 import org.hamster.core.web.spring.boot.AbstractApplication;
 import org.hamster.sprite.dao.SpriteDaoConfiguration;
+import org.hamster.sprite.portal.config.SpriteWebConfiguration;
 import org.hamster.sprite.portal.consts.SecurityConsts;
 import org.hamster.sprite.portal.consts.WebConsts;
 import org.hamster.sprite.service.user.api.service.UserService;
@@ -53,6 +54,11 @@ public class Application extends AbstractApplication {
     @Bean(name = "requestCache")
     public RequestCache requestCache() {
         return new HttpSessionRequestCache();
+    }
+    
+    @Configuration
+    public static class SpriteWebConfig extends WebConfiguration {
+        
     }
 
     @Configuration

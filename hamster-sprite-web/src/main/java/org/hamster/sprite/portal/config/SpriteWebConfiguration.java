@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.hamster.sprite.portal;
+package org.hamster.sprite.portal.config;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,8 +47,8 @@ public class SpriteWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        if (Environment.isOneOf(Environment.UNKNOWN, Environment.LOCAL)) {
-            log.info("Enabling cross domain access for {} environment for testing propose.", Environment.current());
+        if (Environment.global().isOneOf(Environment.UNKNOWN, Environment.LOCAL)) {
+            log.info("Enabling cross domain access for {} environment for testing propose.", Environment.global().current());
             registry.addMapping("/**").allowedOrigins("*");
         }
     }

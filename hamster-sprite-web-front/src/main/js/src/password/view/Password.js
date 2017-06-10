@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 import ApplicationList from './component/ApplicationListRedux.js'
 import ApplicationDetails from './component/ApplicationDetailsRedux.js'
+import AddApplication from './component/AddApplicationRedux.js'
 
 export default class Password extends Component {
 
@@ -14,8 +15,9 @@ export default class Password extends Component {
   render() {
     return (
       <section>
-        <Route path="/password/applications" component={ApplicationList} exact={true}  />
+        <Route path="/password" component={ApplicationList} exact={true}  />
         <Route path="/password/application/:applicationId" component={ApplicationDetails} />
+        <Route path="/password/application/add" component={AddApplication} />
       </section>);
   }
 }

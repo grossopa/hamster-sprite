@@ -49,7 +49,7 @@ public abstract class AbstractSpritePageController extends AbstractPageControlle
         mav.addObject("exceptionDto", super.handleException(ex));
 
         // only serves non-production environment
-        if (!Environment.isProd()) {
+        if (!Environment.global().isProd()) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             ex.printStackTrace(pw);
