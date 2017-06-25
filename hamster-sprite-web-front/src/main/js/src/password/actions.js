@@ -13,6 +13,10 @@ export const navigateApplication = (applicationId) => {
   return push(`/password/application/${applicationId}`)
 }
 
+export const navigateApplicationManagement = () => {
+  return push(`/password/management`)
+}
+
 export const requestApplications = () => {
   return {
     type : Consts.PWD_REQUEST_APPLICATIONS
@@ -133,6 +137,122 @@ export const fetchPasswordReveal = (accountId) => {
       .then(json => dispatch(receivePasswordReveal(accountId, json)))
   }
 }
+
+export const emptyPlainPassword = () => {
+  return {
+    type : Consts.PWD_EMPTY_PLAIN_PASSWORD,
+    plainPassword : null
+  }
+}
+
+export const requestGeneratePassword = (rule) => {
+  return {
+    type : Consts.PWD_REQUEST_GENERATE_PASSWORD,
+    rule : rule
+  }
+}
+
+export const receiveGeneratePassword = (rule, json) => {
+  return {
+    type : Consts.PWD_RECEIVE_GENERATE_PASSWORD,
+    rule : rule,
+    plainPassword : json.data.plainPassword
+  }
+}
+
+export const generatePassword = (rule) => {
+  return dispatch => {
+    dispatch(requestGeneratePassword(rule))
+    return fetch(appConfig.url(`/password/password/generate.json`), {
+      queryParams : {
+        rule : rule
+      }
+    })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then(json => dispatch(receiveGeneratePassword(rule, json)))
+  }
+}
+
+export const requestUpdatePassword = (accountId, plainPassword) => {
+  return {
+    type : Consts.PWD_REQUEST_UPDATE_PASSWORD,
+    accountId : accountId,
+    plainPassword : plainPassword
+  }
+}
+
+export const receiveUpdatePassword = (json, accountId, plainPassword) => {
+  return {
+    type : Consts.PWD_RECEIVE_UPDATE_PASSWORD,
+    accountId : accountId,
+    plainPassword : plainPassword,
+    message : json.message
+  }
+}
+
+export const updatePassword = (accountId, plainPassword) => {
+  return dispatch => {
+    dispatch(requestUpdatePassword(accountId, plainPassword))
+    return fetch(appConfig.url(`/password/password/update.json`), {
+      queryParams : {
+        accountId : accountId,
+        plainPassword : plainPassword
+      }
+    })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then(json => dispatch(receiveUpdatePassword(json, accountId, plainPassword)))
+  }
+}
+
+export const requestCreateAccount = (applicationId, accountId, plainPassword) => {
+  return {
+    type : Consts.PWD_REQUEST_CREATE_ACCOUNT,
+    applicationId : applicationId,
+    accountId : accountId,
+    plainPassword : plainPassword
+  }
+}
+
+export const receiveCreateAccount = (json, applicationId, accountId, plainPassword) => {
+  return {
+    type : Consts.PWD_RECEIVE_CREATE_ACCOUNT,
+    applicationId : applicationId,
+    accountId : accountId,
+    plainPassword : plainPassword,
+    message : json.message
+  }
+}
+
+export const createAccount = (applicationId, accountId, plainPassword) => {
+  return dispatch => {
+    dispatch(requestCreateAccount(applicationId, accountId, plainPassword))
+    return fetch(appConfig.url(`/password/account/create.json`), {
+      queryParams : {
+        applicationId : applicationId,
+        accountId : accountId,
+        plainPassword : plainPassword
+      }
+    })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then(json => dispatch(receiveCreateAccount(json, applicationId, accountId, plainPassword)))
+  }
+}
+
 
 export const openAccountDialog = (accountId, accountName) => {
   return {

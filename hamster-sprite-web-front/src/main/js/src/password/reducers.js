@@ -1,5 +1,6 @@
 import * as Consts from './consts.js'
 
+// pre-defined event name from react-router-redux
 const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
 
 const applicationsRouterHandler = (state, pathname) => {
@@ -40,6 +41,7 @@ export function applications(state = {isFetching : false}, action) {
     case Consts.PWD_REQUEST_APPLICATION:
     case Consts.PWD_REQUEST_ACCOUNTS:
     case Consts.PWD_REQUEST_PASSWORD_REVEAL:
+    case Consts.PWD_REQUEST_GENERATE_PASSWORD:
       return Object.assign({}, state, {
         isFetching: true
       })
@@ -73,6 +75,18 @@ export function applications(state = {isFetching : false}, action) {
         selectedAccountName : action.selectedAccountName,
         selectedAccountId : action.selectedAccountId,
         plainPassword : action.plainPassword
+      })
+    case Consts.PWD_EMPTY_PLAIN_PASSWORD:
+      return Object.assign({}, state, {
+        plainPassword : action.plainPassword
+      })
+    case Consts.PWD_RECEIVE_GENERATE_PASSWORD:
+      return Object.assign({}, state, {
+        plainPassword : action.plainPassword
+      })
+    case Consts.PWD_RECEIVE_UPDATE_PASSWORD:
+      return Object.assign({}, state, {
+        
       })
     default:
       return state
